@@ -2,6 +2,8 @@
 
 # exit on failure
 set -e
+# echo commands as they are run
+set -o verbose
 
 # set SDK root
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
@@ -41,8 +43,8 @@ cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode CMAKE_OSX_DEPLOYMEN
 xcodebuild -configuration Release build install -target install
 
 # ** merge the fuckers **
-mkdir -p $ROOTDIR/build/libcombine-dep-merged
-libtool -o libcombine-dep-merged.a $ROOTDIR/install/zipper-xcode/lib/libZipper-static.a $LIBSBML_STATIC /Users/phantom/etc/install/boost-1.62/lib/libboost_system.a /Users/phantom/etc/install/boost-1.62/lib/libboost_filesystem.a
+mkdir -p $BLDROOT/libcombine-dep-merged
+libtool -o libcombine-dep-merged.a $INSROOT/zipper-xcode/lib/libZipper-static.a $LIBSBML_STATIC /Users/phantom/etc/install/boost-1.62/lib/libboost_system.a /Users/phantom/etc/install/boost-1.62/lib/libboost_filesystem.a
 MERGED_LIB=$(pwd)/libcombine-dep-merged.a
 echo "Merged dep libs: $MERGED_LIB"
 
