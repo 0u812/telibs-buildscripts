@@ -9,9 +9,14 @@ set -o verbose
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
 
 LIBSBML_STATIC=/Users/phantom/etc/install/libsbml-5.13.0-experimental/lib/libsbml-static.a
+CONDADIR=/Users/phantom/miniconda2
+CONDA=$CONDADIR/bin/conda
+PYTHON=$CONDADIR/bin/python
+LIBCOMBINE_VERSION="0.1.0"
 
 # cd to the directory of this script
 cd "$( dirname "${BASH_SOURCE[0]}" )"
+THISDIR=`pwd`
 
 while [ ! -d ".git" ]; do
   cd ..
@@ -61,5 +66,16 @@ cd ../../build
 mkdir -p libcombine-xcode
 cd libcombine-xcode
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/libcombine`
-cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/Users/phantom/etc/install/libsbml-5.13.0-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/Users/phantom/devel/install/zipper-xcode/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
+cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/Users/phantom/etc/install/libsbml-5.13.0-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/Users/phantom/devel/install/zipper-xcode/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
 xcodebuild -configuration Release build install -target install
+
+# ** make setup.py for libcombine **
+
+cd $THISDIR
+$PYTHON -c "f = open('meta.yaml.in'); s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/meta.yaml
+$PYTHON -c "f = open('setup.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/setup.py
+cp $THISDIR/{bld.bat,build.sh} $INSROOT/libcombine-xcode/lib/python2.7/site-packages
+cd $INSROOT/libcombine-xcode/lib/python2.7/site-packages
+$CONDA build .
+# do something like
+#~/miniconda2/bin/anaconda upload /Users/phantom/miniconda2/conda-bld/osx-64/libcombine-0.1.0-0.tar.bz2
