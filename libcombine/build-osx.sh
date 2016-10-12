@@ -74,7 +74,8 @@ xcodebuild -configuration Release build install -target install
 cd $THISDIR
 $PYTHON -c "f = open('meta.yaml.in'); s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/meta.yaml
 $PYTHON -c "f = open('setup.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/setup.py
-$PYTHON -c "f = open('__init__.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/libcombine/__init__.py
+# rename libcombine.py to __init__.py per Frank
+mv $INSROOT/libcombine-xcode/lib/python2.7/site-packages/libcombine/libcombine.py $INSROOT/libcombine-xcode/lib/python2.7/site-packages/libcombine/__init__.py
 cp $THISDIR/{bld.bat,build.sh} $INSROOT/libcombine-xcode/lib/python2.7/site-packages
 cd $INSROOT/libcombine-xcode/lib/python2.7/site-packages
 $CONDA build .
