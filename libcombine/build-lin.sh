@@ -38,15 +38,15 @@ git submodule update --init --recursive
 git pull
 
 cd $BLDROOT
-mkdir -p zipper-xcode
-cd zipper-xcode
+mkdir -p zipper
+cd zipper
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/zipper`
-cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/exc/install/boost-1.62 -DBOOST_INCLUDE_DIR=/home/user/exc/install/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_system.a ../../src/zipper
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/exc/install/boost-1.62 -DBOOST_INCLUDE_DIR=/home/user/exc/install/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_system.a ../../src/zipper
 make -j4 install
 
 # ** merge the fuckers **
 mkdir -p $BLDROOT/libcombine-dep-merged
-libtool -o libcombine-dep-merged.a $INSROOT/zipper-xcode/lib/libZipper-static.a $LIBSBML_STATIC /home/user/etc/install/imac/boost-1.62/lib/libboost_system.a /home/user/etc/install/imac/boost-1.62/lib/libboost_filesystem.a
+libtool -o libcombine-dep-merged.a $INSROOT/zipper/lib/libZipper-static.a $LIBSBML_STATIC /home/user/etc/install/imac/boost-1.62/lib/libboost_system.a /home/user/etc/install/imac/boost-1.62/lib/libboost_filesystem.a
 MERGED_LIB=$(pwd)/libcombine-dep-merged.a
 echo "Merged dep libs: $MERGED_LIB"
 
@@ -60,21 +60,21 @@ cd libcombine
 git pull
 
 cd ../../build
-mkdir -p libcombine-xcode
-cd libcombine-xcode
+mkdir -p libcombine
+cd libcombine
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/libcombine`
-cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper-xcode/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
 make -j4 install
 
 # ** make setup.py for libcombine **
 
 cd $THISDIR
-$PYTHON -c "f = open('meta.yaml.in'); s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/meta.yaml
-$PYTHON -c "f = open('setup.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine-xcode/lib/python2.7/site-packages/setup.py
+$PYTHON -c "f = open('meta.yaml.in'); s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine/lib/python2.7/site-packages/meta.yaml
+$PYTHON -c "f = open('setup.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine/lib/python2.7/site-packages/setup.py
 # rename libcombine.py to __init__.py per Frank
-mv $INSROOT/libcombine-xcode/lib/python2.7/site-packages/libcombine/libcombine.py $INSROOT/libcombine-xcode/lib/python2.7/site-packages/libcombine/__init__.py
-cp $THISDIR/{bld.bat,build.sh} $INSROOT/libcombine-xcode/lib/python2.7/site-packages
-cd $INSROOT/libcombine-xcode/lib/python2.7/site-packages
+mv $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/libcombine.py $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/__init__.py
+cp $THISDIR/{bld.bat,build.sh} $INSROOT/libcombine/lib/python2.7/site-packages
+cd $INSROOT/libcombine/lib/python2.7/site-packages
 $CONDA build .
 # do something like
 #~/miniconda2/bin/anaconda upload /home/user/miniconda2/conda-bld/osx-64/libcombine-0.1.0-0.tar.bz2
