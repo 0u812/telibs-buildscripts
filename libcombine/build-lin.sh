@@ -41,7 +41,7 @@ cd $BLDROOT
 mkdir -p zipper-xcode
 cd zipper-xcode
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/zipper`
-cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/etc/install/imac/boost-1.59 -DBOOST_INCLUDE_DIR=/home/user/etc/install/imac/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/etc/install/imac/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/etc/install/imac/boost-1.62/lib/libboost_system.a ../../src/zipper
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/etc/install/imac/boost-1.59 -DBOOST_INCLUDE_DIR=/home/user/etc/install/imac/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/etc/install/imac/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/etc/install/imac/boost-1.62/lib/libboost_system.a ../../src/zipper
 xcodebuild -configuration Release build install -target install
 
 # ** merge the fuckers **
@@ -63,7 +63,7 @@ cd ../../build
 mkdir -p libcombine-xcode
 cd libcombine-xcode
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/libcombine`
-cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper-xcode/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper-xcode/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
 xcodebuild -configuration Release build install -target install
 
 # ** make setup.py for libcombine **
