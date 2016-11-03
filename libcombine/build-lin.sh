@@ -80,7 +80,7 @@ cp /home/user/exc/install/gcc-5.4.0/lib64/{libgcc_s.so.1,libstdc++.so.6} $INSROO
 export LD_LIBRARY_PATH=/home/user/exc/install/gcc-5.4.0/lib:/home/user/exc/install/gcc-5.4.0/lib64:$LD_LIBRARY_PATH
 export PATH=~/exc/install/patchelf/bin:$PATH
 # set rpath of python wrapper
-patchelf --set-rpath "$ORIGIN/./" $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/_libcombine.so
+patchelf --set-rpath \$ORIGIN/ $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/_libcombine.so
 
 cd $INSROOT/libcombine/lib/python2.7/site-packages
 $CONDA build .
