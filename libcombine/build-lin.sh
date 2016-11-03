@@ -11,6 +11,10 @@ CONDA=$CONDADIR/bin/conda
 PYTHON=$CONDADIR/bin/python
 LIBCOMBINE_VERSION="0.1.0"
 
+export CC=/home/user/exc/install/gcc-5.4.0/bin/gcc
+export CXX=/home/user/exc/install/gcc-5.4.0/bin/g++
+export LD_LIBRARY_PATH=/home/user/exc/install/gcc-5.4.0/lib:$LD_LIBRARY_PATH
+
 # cd to the directory of this script
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THISDIR=`pwd`
@@ -41,7 +45,7 @@ cd $BLDROOT
 mkdir -p zipper
 cd zipper
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/zipper`
-cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/exc/install/boost-1.62 -DBOOST_INCLUDE_DIR=/home/user/exc/install/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_system.a ../../src/zipper
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper -DCMAKE_CXX_FLAGS="-std=c++17" -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/exc/install/boost-1.62 -DBOOST_INCLUDE_DIR=/home/user/exc/install/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_system.a ../../src/zipper
 make -j4 install
 
 # ** libcombine **
@@ -57,7 +61,7 @@ cd ../../build
 mkdir -p libcombine
 cd libcombine
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/libcombine`
-cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine -DCMAKE_CXX_FLAGS="-std=c++17" -DLIBSBML_LIBRARY=$MERGED_LIB -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper/include -DZIPPER_LIBRARY=$MERGED_LIB -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
 make -j4 install
 
 # ** make setup.py for libcombine **
