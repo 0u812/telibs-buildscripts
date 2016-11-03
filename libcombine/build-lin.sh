@@ -72,7 +72,12 @@ $PYTHON -c "f = open('meta.yaml.in'); s=f.read(); print(s.format(version='$LIBCO
 $PYTHON -c "f = open('setup.py.in');  s=f.read(); print(s.format(version='$LIBCOMBINE_VERSION'))" >$INSROOT/libcombine/lib/python2.7/site-packages/setup.py
 # rename libcombine.py to __init__.py per Frank
 mv $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/libcombine.py $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/__init__.py
+# copy conda files over
 cp $THISDIR/{bld.bat,build.sh} $INSROOT/libcombine/lib/python2.7/site-packages
+# copy gcc runtime libs over
+cp /home/user/exc/install/gcc-5.4.0/lib64/{libgcc_s.so.1,libstdc++.so.6} $INSROOT/libcombine/lib/python2.7/site-packages/libcombine/
+
+
 cd $INSROOT/libcombine/lib/python2.7/site-packages
 $CONDA build .
 # do something like
