@@ -62,7 +62,7 @@ cd ../../build
 mkdir -p libcombine
 cd libcombine
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/libcombine`
-cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine -DCMAKE_CXX_FLAGS="-std=c++17" -DLIBSBML_LIBRARY=$LIBSBML_STATIC -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper/include -DZIPPER_LIBRARY=$INSROOT/zipper/lib/libZipper-static.a -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.so -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
+cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/libcombine -DCMAKE_CXX_FLAGS="-std=c++17" -DLIBSBML_LIBRARY=$LIBSBML_STATIC -DLIBSBML_INCLUDE_DIR=/home/user/devel/install/libsbml-experimental/include -DLIBSBML_STATIC=ON -DEXTRA_LIBS='xml2;bz2;z;/home/user/exc/install/boost-1.62/lib/libboost_system.a;/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a' -DZIPPER_INCLUDE_DIR=/home/user/devel/install/zipper/include -DZIPPER_LIBRARY=$INSROOT/zipper/lib/libZipper-static.a -DWITH_PYTHON=ON -DPYTHON_LIBRARY=$CONDADIR/lib/libpython2.7.so -DPYTHON_INCLUDE_DIR=$CONDADIR/include/python2.7 -DPYTHON_EXECUTABLE=$CONDADIR/bin/python -DPYTHON_USE_DYNAMIC_LOOKUP=ON ../../src/libcombine
 make -j4 install
 
 # ** make setup.py for libcombine **
