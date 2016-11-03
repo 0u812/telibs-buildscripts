@@ -44,12 +44,6 @@ echo "Creating CMake project in build directory " `pwd` " for source " `cd ../..
 cmake -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/home/user/exc/install/boost-1.62 -DBOOST_INCLUDE_DIR=/home/user/exc/install/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/home/user/exc/install/boost-1.62/lib/libboost_system.a ../../src/zipper
 make -j4 install
 
-# ** merge the fuckers **
-mkdir -p $BLDROOT/libcombine-dep-merged
-libtool -o libcombine-dep-merged.a $INSROOT/zipper/lib/libZipper-static.a $LIBSBML_STATIC /home/user/etc/install/imac/boost-1.62/lib/libboost_system.a /home/user/etc/install/imac/boost-1.62/lib/libboost_filesystem.a
-MERGED_LIB=$(pwd)/libcombine-dep-merged.a
-echo "Merged dep libs: $MERGED_LIB"
-
 # ** libcombine **
 
 cd $SRCROOT
