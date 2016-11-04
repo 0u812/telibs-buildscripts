@@ -7,4 +7,4 @@ setup(name='libcombine',
       description='A library for working with COMBINE archives',
       url='https://github.com/0u812/libCombine',
       packages=['libcombine'],
-      package_data={{'libcombine': ['*.so']}})
+      package_data={{'libcombine': ['*.so','lib*']}})
