@@ -44,7 +44,7 @@ cd $BLDROOT
 mkdir -p zipper-xcode
 cd zipper-xcode
 echo "Creating CMake project in build directory " `pwd` " for source " `cd ../../src/zipper`
-cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode CMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/Users/phantom/etc/install/imac/boost-1.59 -DBOOST_INCLUDE_DIR=/Users/phantom/etc/install/imac/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/Users/phantom/etc/install/imac/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/Users/phantom/etc/install/imac/boost-1.62/lib/libboost_system.a ../../src/zipper
+cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$INSROOT/zipper-xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.10 -DWITH_BOOST_FILESYSTEM=ON -DBOOST_ROOT=/Users/phantom/etc/install/imac/boost-1.59 -DBOOST_INCLUDE_DIR=/Users/phantom/etc/install/imac/boost-1.62/include -DBOOST_FILESYSTEM_LIBRARY=/Users/phantom/etc/install/imac/boost-1.62/lib/libboost_filesystem.a -DBOOST_SYSTEM_LIBRARY=/Users/phantom/etc/install/imac/boost-1.62/lib/libboost_system.a ../../src/zipper
 xcodebuild -configuration Release build install -target install
 
 # ** merge the fuckers **
