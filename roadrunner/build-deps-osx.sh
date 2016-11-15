@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
+
+# exit on failure
 set -e
+# echo commands as they are run
+set -o verbose
 
 mkdir -p ~/devel/build/libroadrunner-deps-xcode
 cd $_
