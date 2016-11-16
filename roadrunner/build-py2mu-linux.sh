@@ -13,6 +13,12 @@ LLVM_CONFIG=/whlbldr/install/llvm-3.3/bin/llvm-config
 PYTHON_INTERP=/opt/python/cp27-cp27mu/bin/python2
 PYTHON_INCLUDE=/opt/python/cp27-cp27mu/include/python2.7
 
+# check out latest roadrunner
+cd $ROOT/roadrunner
+git pull
+cd $ROOT/rrplugins
+git pull
+
 # Build roadrunner
 mkdir -p $ROOT/build/roadrunner-py2mu
 cd $_
