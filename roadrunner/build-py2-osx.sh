@@ -34,7 +34,6 @@ python2 setup.py bdist_wheel --python-tag=cp27 --plat-name=macosx-10.9-x86_64
 cd dist
 find . -name 'libroadrunner*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp27m}" ' -- \{\} \;
 cd ..
-# mv dist/libroadrunner-1.4.8-cp27-none-macosx_10_9_x86_64.whl dist/libroadrunner-1.4.8-cp27-cp27m-macosx_10_9_x86_64.whl
 
 # copy over setup for rrplugins
 cp $THIS_DIR/rrplugins-setup.py ~/devel/install/roadrunner-xcode-py2

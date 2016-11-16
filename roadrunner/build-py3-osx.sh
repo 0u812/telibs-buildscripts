@@ -30,7 +30,10 @@ xcodebuild -target install -configuration Release
 cd ~/devel/install/roadrunner-xcode-py3
 python3 setup.py bdist_wheel --python-tag=cp35 --plat-name=macosx-10.9-x86_64
 # Fix ABI tag
-# mv dist/libroadrunner-1.4.8-cp35-none-macosx_10_9_x86_64.whl dist/libroadrunner-1.4.8-cp35-cp35m-macosx_10_9_x86_64.whl
+# http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
+cd dist
+find . -name 'libroadrunner*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp35m}" ' -- \{\} \;
+cd ..
 
 # copy over setup for rrplugins
 cp $THIS_DIR/rrplugins-setup.py ~/devel/install/roadrunner-xcode-py3
