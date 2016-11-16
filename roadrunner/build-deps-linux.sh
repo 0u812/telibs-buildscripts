@@ -10,7 +10,7 @@ ROOT=/whlbldr
 mkdir -p $ROOT/build/libroadrunner-deps
 cd $_
 pwd
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DCMAKE_INSTALL_PREFIX=$ROOT/install/libroadrunner-deps $ROOT/src/libroadrunner-deps
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/libroadrunner-deps $ROOT/src/libroadrunner-deps
 make -j4 && make install
 
 # copy to roadrunner-xcode-py2 and roadrunner-xcode-py3
