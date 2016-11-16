@@ -22,3 +22,17 @@ xcodebuild -configuration Release build install -target install -xcconfig $THIS_
 mkdir -p ~/devel/build/rrplugins-xcode-py2 && cd $_
 cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=~/devel/install/roadrunner-xcode-py2 -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DTLP_DEPENDENCIES_PATH=~/devel/install/roadrunner-xcode-py2 ~/devel/src/rrplugins
 xcodebuild -configuration Release build install -target install -xcconfig $THIS_DIR/no-strippy.config
+
+
+# Build pip package
+cd ~/devel/install/roadrunner-xcode-py2
+python2 setup.py bdist_wheel --python-tag=cp27 --plat-name=macosx-10.9-x86_64
+# Fix ABI tag
+# mv dist/libroadrunner-1.4.8-cp27-none-macosx_10_9_x86_64.whl dist/libroadrunner-1.4.8-cp27-cp27m-macosx_10_9_x86_64.whl
+
+# copy over setup for rrplugins
+cp $THIS_DIR/rrplugins-setup.py ~/devel/install/roadrunner-xcode-py2
+python rrplugins-setup.py bdist_wheel --universal
+
+echo "Now do something like /Library/Frameworks/Python.framework/Versions/2.7/bin/twine upload ~/devel/install/roadrunner-xcode-py2/dist/*"
+
