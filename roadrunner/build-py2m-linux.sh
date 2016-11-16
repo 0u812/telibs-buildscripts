@@ -25,6 +25,7 @@ make -j4 && make install
 # Build rrplugins
 mkdir -p $ROOT/build/rrplugins-py2m && cd $_
 cmake -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m -DCMAKE_BUILD_TYPE=Release  -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m $ROOT/src/rrplugins
+
 make -j4 && make install
 
 
