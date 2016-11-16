@@ -14,9 +14,9 @@ PYTHON_INTERP=/opt/python/cp27-cp27m/bin/python2
 PYTHON_INCLUDE=/opt/python/cp27-cp27m/include/python2.7
 
 # check out latest roadrunner
-cd $ROOT/roadrunner
+cd $ROOT/src/roadrunner
 git pull
-cd $ROOT/rrplugins
+cd $ROOT/src/rrplugins
 git pull
 
 # Build roadrunner
