@@ -28,7 +28,7 @@ xcodebuild -configuration Release build install -target install -xcconfig $THIS_
 
 # Build pip package
 cd ~/devel/install/roadrunner-xcode-py3
-python2 setup.py bdist_wheel --python-tag=cp35 --plat-name=macosx-10.9-x86_64
+python3 setup.py bdist_wheel --python-tag=cp35 --plat-name=macosx-10.9-x86_64
 # Fix ABI tag
 # mv dist/libroadrunner-1.4.8-cp35-none-macosx_10_9_x86_64.whl dist/libroadrunner-1.4.8-cp35-cp35m-macosx_10_9_x86_64.whl
 
