@@ -34,6 +34,6 @@ python2 setup.py bdist_wheel --python-tag=cp27 --plat-name=macosx-10.9-x86_64
 
 # copy over setup for rrplugins
 cp $THIS_DIR/rrplugins-setup.py ~/devel/install/roadrunner-xcode-py2
-python rrplugins-setup.py bdist_wheel --universal
+python2 rrplugins-setup.py bdist_wheel --universal
 
 echo "Now do something like /Library/Frameworks/Python.framework/Versions/2.7/bin/twine upload ~/devel/install/roadrunner-xcode-py2/dist/*"
