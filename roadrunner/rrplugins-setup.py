@@ -5,7 +5,7 @@ from setuptools import setup
 setup(name='rrplugins',
     author='J Kyle Medley, M T Karlsson, Herbert M Sauro',
     author_email='tellurium-discuss@u.washington.edu',
-    version='1.1.7',
+    version='1.1.8',
     description='Plugins for libroadrunner',
     url='http://libroadrunner.org',
     packages=['rrplugins'],
