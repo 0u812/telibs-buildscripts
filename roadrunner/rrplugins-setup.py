@@ -12,5 +12,5 @@ setup(name='rrplugins',
     package_dir={
         'rrplugins' : 'site-packages/rrplugins',
     },
-    install_requires=['libroadrunner>=1.4.11', 'matplotlib>=1.5'],
+    install_requires=['libroadrunner>=1.4.12', 'matplotlib>=1.5'],
 )
