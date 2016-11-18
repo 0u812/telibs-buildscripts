@@ -22,5 +22,5 @@ pwd
 "$DEVENV" libroadrunner_deps.sln //Build Release //Project INSTALL
 
 # copy to roadrunner-xcode-py2 and roadrunner-xcode-py3
-cp -R $ROOT/install/libroadrunner-deps/ $ROOT/install/roadrunner-py2m-win64
-cp -R $ROOT/install/libroadrunner-deps/ $ROOT/install/roadrunner-py3m-win64
+cp -R $ROOT/install/libroadrunner-deps-vs14-64 $ROOT/install/roadrunner-py2m-win64
+cp -R $ROOT/install/libroadrunner-deps-vs14-64 $ROOT/install/roadrunner-py3m-win64
