@@ -35,7 +35,7 @@ cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL
 
 # Build rrplugins
 mkdir -p $ROOT/build/rrplugins-py2m-vs14-64 && cd $_
-cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DCMAKE_BUILD_TYPE=Release  -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m-win64 -DLIBXML2_INCLUDE_DIR=C:/Users/phantom/Documents/devel/src/libroadrunner-deps/third_party/dependencies/libsbml/include/  $ROOT/src/rrplugins
+cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DCMAKE_BUILD_TYPE=Release -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m-win64 -DLIBXML2_INCLUDE_DIR=C:/Users/phantom/Documents/devel/src/libroadrunner-deps/third_party/dependencies/libsbml/include/ $ROOT/src/rrplugins
 
 "$DEVENV" rrplugins.sln //Build Release //Project INSTALL
 
