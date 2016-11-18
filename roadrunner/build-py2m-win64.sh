@@ -8,7 +8,7 @@ set -o verbose
 # cd to the directory of this script
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
-ROOT==/c/Users/phantom/Documents/devel
+ROOT=/c/Users/phantom/Documents/devel
 LLVM_CONFIG=/c/Users/phantom/Documents/exc/install/llvm-3.5.2-vs14-64/bin/llvm-config.exe
 PYTHON_INTERP=/c/Python27-64/python.exe
 PIP=/c/Python27-64/Scripts/pip2.exe
@@ -28,7 +28,7 @@ $PIP install numpy
 mkdir -p $ROOT/build/roadrunner-py2m
 cd $_
 pwd
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DLLVM_CONFIG_EXECUTABLE=$LLVM_CONFIG -DTHIRD_PARTY_INSTALL_FOLDER=$ROOT/install/roadrunner-py2m-win64 -DBUILD_PYTHON=ON -DBUILD_TESTS=ON -DBUILD_TEST_TOOLS=ON -DRR_USE_CXX11=FALSE -DUSE_TR1_CXX_NS=FALSE -DPYTHON_EXECUTABLE=$PYTHON_INTERP -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DWITH_CONDA_BUILDER=OFF -DZLIB_LIBRARY=/c/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/zdll.lib $ROOT/src/roadrunner
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DLLVM_CONFIG_EXECUTABLE=$LLVM_CONFIG -DTHIRD_PARTY_INSTALL_FOLDER=$ROOT/install/roadrunner-py2m-win64 -DBUILD_PYTHON=ON -DBUILD_TESTS=ON -DBUILD_TEST_TOOLS=ON -DRR_USE_CXX11=FALSE -DUSE_TR1_CXX_NS=FALSE -DPYTHON_EXECUTABLE=$PYTHON_INTERP -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DWITH_CONDA_BUILDER=OFF -DLIBSBML_LIBRARY=/c/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml.lib -DLIBSBML_STATIC_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml-static.lib -DZLIB_LIBRARY=/c/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/zdll.lib $ROOT/src/roadrunner
 
 "$DEVENV" rr.sln //Build Release //Project INSTALL
 
