@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 # exit on failure
-set -e
+# set -e
 # echo commands as they are run
 set -o verbose
 
@@ -25,7 +25,7 @@ $GIT pull
 $PIP install numpy
 
 # Build roadrunner
-mkdir -p $ROOT/build/roadrunner-py2m
+mkdir -p $ROOT/build/roadrunner-py2m-vs14-64
 cd $_
 pwd
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DLLVM_CONFIG_EXECUTABLE=$LLVM_CONFIG -DTHIRD_PARTY_INSTALL_FOLDER=$ROOT/install/roadrunner-py2m-win64 -DBUILD_PYTHON=ON -DBUILD_TESTS=ON -DBUILD_TEST_TOOLS=ON -DRR_USE_CXX11=FALSE -DUSE_TR1_CXX_NS=FALSE -DPYTHON_EXECUTABLE=$PYTHON_INTERP -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DWITH_CONDA_BUILDER=OFF -DLIBSBML_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml.lib -DLIBSBML_STATIC_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml-static.lib -DZLIB_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/zdll.lib -DBZ2_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libbz2.lib -DICONV_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libiconv.lib -DSWIG_EXECUTABLE=C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe $ROOT/src/roadrunner
@@ -34,7 +34,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner
 
 
 # Build rrplugins
-mkdir -p $ROOT/build/rrplugins-py2m && cd $_
+mkdir -p $ROOT/build/rrplugins-py2m-vs14-64 && cd $_
 cmake -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DCMAKE_BUILD_TYPE=Release  -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m-win64 $ROOT/src/rrplugins
 
 "$DEVENV" rrplugins.sln //Build Release //Project INSTALL
