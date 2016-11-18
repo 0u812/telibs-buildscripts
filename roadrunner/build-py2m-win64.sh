@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 # exit on failure
-# set -e
+set -e
 # echo commands as they are run
 set -o verbose
 
