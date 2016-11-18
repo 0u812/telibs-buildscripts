@@ -28,14 +28,14 @@ $PIP install numpy
 mkdir -p $ROOT/build/roadrunner-py2m-vs14-64
 cd $_
 pwd
-cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DLLVM_CONFIG_EXECUTABLE=$LLVM_CONFIG -DTHIRD_PARTY_INSTALL_FOLDER=$ROOT/install/roadrunner-py2m-win64 -DBUILD_PYTHON=ON -DBUILD_TESTS=ON -DBUILD_TEST_TOOLS=ON -DRR_USE_CXX11=FALSE -DUSE_TR1_CXX_NS=FALSE -DPYTHON_EXECUTABLE=$PYTHON_INTERP -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DWITH_CONDA_BUILDER=OFF -DLIBSBML_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml.lib -DLIBSBML_STATIC_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml-static.lib -DZLIB_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/zdll.lib -DBZ2_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libbz2.lib -DICONV_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libiconv.lib -DSWIG_EXECUTABLE=C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe $ROOT/src/roadrunner
+cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DLLVM_CONFIG_EXECUTABLE=$LLVM_CONFIG -DTHIRD_PARTY_INSTALL_FOLDER=$ROOT/install/roadrunner-py2m-win64 -DBUILD_PYTHON=ON -DBUILD_TESTS=ON -DBUILD_TEST_TOOLS=ON -DRR_USE_CXX11=FALSE -DUSE_TR1_CXX_NS=FALSE -DPYTHON_EXECUTABLE=$PYTHON_INTERP -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DWITH_CONDA_BUILDER=OFF -DLIBSBML_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml.lib -DLIBSBML_STATIC_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libsbml-static.lib -DZLIB_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/zdll.lib -DBZ2_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libbz2.lib -DICONV_LIBRARY=C:/Users/phantom/Documents/devel/install/roadrunner-vs14-64/lib/libiconv.lib -DSWIG_EXECUTABLE=C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe  $ROOT/src/roadrunner
 
 "$DEVENV" rr.sln //Build Release //Project INSTALL
 
 
 # Build rrplugins
 mkdir -p $ROOT/build/rrplugins-py2m-vs14-64 && cd $_
-cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DCMAKE_BUILD_TYPE=Release  -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m-win64 $ROOT/src/rrplugins
+cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadrunner-py2m-win64 -DCMAKE_BUILD_TYPE=Release  -DTLP_DEPENDENCIES_PATH=$ROOT/install/roadrunner-py2m-win64 -DLIBXML2_INCLUDE_DIR=C:/Users/phantom/Documents/devel/src/libroadrunner-deps/third_party/dependencies/libsbml/include/  $ROOT/src/rrplugins
 
 "$DEVENV" rrplugins.sln //Build Release //Project INSTALL
 
