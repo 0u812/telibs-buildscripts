@@ -41,6 +41,8 @@ cmake -G"Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=$ROOT/install/roadr
 
 # copy libsbml.dll to site-packages/roadrunner
 cp $ROOT/install/roadrunner-py2m-win64/bin/libsbml.dll $ROOT/install/roadrunner-py2m-win64/site-packages/roadrunner/
+# copy runtimes to site-packages/roadrunner
+cp $ROOT/install/roadrunner-py3m-win64/bin/{msvcp140.dll,vcruntime140.dll} $ROOT/install/roadrunner-py3m-win64/site-packages/roadrunner/
 
 # Build pip package
 cd $ROOT/install/roadrunner-py2m-win64
