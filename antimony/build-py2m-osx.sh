@@ -21,13 +21,17 @@ xcodebuild -configuration Release build install -target install
 #xcodebuild -configuration Release build install -target install
 
 # copy over cellml libs
-cp $CELLAPI/lib/{libcellml.1.13.dylib,libcevas.1.13.dylib,libannotools.1.13.dylib,libcuses.1.13.dylib,libtelicems.1.13.dylib} $ANTIMONY_INSTALL/bindings/python/antimony
+cp $CELLAPI/lib/libcellml.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/libcellml.2.dylib
+cp $CELLAPI/lib/libcevas.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
+cp $CELLAPI/lib/libannotools.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
+cp $CELLAPI/lib/libcuses.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+cp $CELLAPI/lib/libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
 
 # fix binary
-install_name_tool -change libcellml.2.dylib libcellml.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libcevas.1.dylib libcevas.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libannotools.2.dylib libannotools.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libcuses.1.dylib libcuses.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libtelicems.1.dylib libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+#install_name_tool -change libcellml.2.dylib libcellml.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+#install_name_tool -change libcevas.1.dylib libcevas.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+#install_name_tool -change libannotools.2.dylib libannotools.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+#install_name_tool -change libcuses.1.dylib libcuses.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+#install_name_tool -change libtelicems.1.dylib libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 
 install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
