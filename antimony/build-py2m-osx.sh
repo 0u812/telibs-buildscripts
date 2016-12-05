@@ -9,6 +9,7 @@ PYTHON=/usr/local/bin/python2
 PYLIB=/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
 PYINCLUDE=/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
 CELLAPI=/Users/phantom/devel/install/cell-api-xcode
+LIBSBML=/Users/phantom/devel/install/libsbml-r22792-experimental
 
 mkdir -p ~/devel/build/antimony-trunk-xcode-py2m
 cd $_
