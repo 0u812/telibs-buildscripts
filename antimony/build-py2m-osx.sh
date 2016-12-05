@@ -35,3 +35,14 @@ cp $CELLAPI/lib/libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimon
 #install_name_tool -change libtelicems.1.dylib libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 
 install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+
+# build binary wheel
+cd $ANTIMONY_INSTALL/bindings/python
+python2 setup.py bdist_wheel --python-tag=cp27 --plat-name=macosx-10.9-x86_64
+# fix ABI tag
+# http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
+cd dist
+find . -name 'antimony*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp27m}" ' -- \{\} \;
+cd ..
+
+echo "Now do something like /Library/Frameworks/Python.framework/Versions/2.7/bin/twine upload --sign 9BE0E97B $ANTIMONY_INSTALL/bindings/python/dist/..."
