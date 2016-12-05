@@ -25,7 +25,7 @@ cp $CELLAPI/lib/{libcellml.1.13.dylib,libcevas.1.13.dylib,libannotools.1.13.dyli
 
 # fix binary
 install_name_tool -change libcellml.2.dylib libcellml.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change llibcevas.1.dylib libcevas.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+install_name_tool -change libcevas.1.dylib libcevas.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 install_name_tool -change libannotools.2.dylib libannotools.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 install_name_tool -change libcuses.1.dylib libcuses.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 install_name_tool -change libtelicems.1.dylib libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
