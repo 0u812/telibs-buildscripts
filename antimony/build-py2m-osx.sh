@@ -34,6 +34,27 @@ cp $CELLAPI/lib/libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimon
 #install_name_tool -change libcuses.1.dylib libcuses.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 #install_name_tool -change libtelicems.1.dylib libtelicems.1.13.dylib $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 
+# fix cellml libraries
+install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
+#install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
+
+install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
+#install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
+
+install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+#install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+
+install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
+#install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
+
+# fix ids of libraries
+install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+install_name_tool -change libcevas.1.dylib "@rpath/libcevas.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+install_name_tool -change libcuses.1.dylib "@rpath/libcuses.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+install_name_tool -change libtelicems.1.dylib "@rpath/libtelicems.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+
 install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 
 # build binary wheel
