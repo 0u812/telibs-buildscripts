@@ -22,7 +22,7 @@ PYTHON_INTERP=/opt/python/cp27-cp27mu/bin/python2
 PIP=/opt/python/cp27-cp27mu/bin/pip2
 PYTHON_INCLUDE=/opt/python/cp27-cp27mu/include/python2.7
 
-OMNIIDL=/Users/phantom/etc/install/omniorb-4.2.1/bin/omniidl
+OMNIIDL=/whlbldr/install/omniorb-4.2.1/bin/omniidl
 
 # check out latest source
 cd $ROOT/src/cellml-api
