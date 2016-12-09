@@ -33,38 +33,43 @@ make -j4 && make install
 make -j4 && make install
 
 # copy over cellml libs
-cp $CELLAPI/lib/libcellml.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcellml.2.dylib
-cp $CELLAPI/lib/libcevas.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
-cp $CELLAPI/lib/libannotools.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
-cp $CELLAPI/lib/libcuses.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
-cp $CELLAPI/lib/libtelicems.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
+cp $CELLAPI/lib/libcellml.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcellml.so.2
+cp $CELLAPI/lib/libcevas.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.so.1
+cp $CELLAPI/lib/libannotools.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.so.2
+cp $CELLAPI/lib/libcuses.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.so.1
+cp $CELLAPI/lib/libtelicems.so.1.13 $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.so.1
 
 # fix cellml libraries
-install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
-
-install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
-
-install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
-install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
-
-install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
+# patchelf -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcevas.1.dylib
+#
+# install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libannotools.2.dylib
+#
+# install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+# install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libcuses.1.dylib
+#
+# install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/libtelicems.1.dylib
 
 # fix ids of libraries
-install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libcevas.1.dylib "@rpath/libcevas.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libcuses.1.dylib "@rpath/libcuses.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
-install_name_tool -change libtelicems.1.dylib "@rpath/libtelicems.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+# install_name_tool -change libcellml.2.dylib "@rpath/libcellml.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+# install_name_tool -change libcevas.1.dylib "@rpath/libcevas.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+# install_name_tool -change libannotools.2.dylib "@rpath/libannotools.2.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+# install_name_tool -change libcuses.1.dylib "@rpath/libcuses.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+# install_name_tool -change libtelicems.1.dylib "@rpath/libtelicems.1.dylib" $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
 
-install_name_tool -add_rpath "@loader_path/." $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+patchelf --set-rpath '$ORIGIN/.' $ANTIMONY_INSTALL/bindings/python/antimony/_antimony.so
+
+# copy over c++ libs
+cp /whlbldr/install/gcc-5.4.0/lib64/libstdc++.so.6 $ANTIMONY_INSTALL/bindings/python/antimony
+cp /whlbldr/install/gcc-5.4.0/lib64/libgcc_s.so.1 $ANTIMONY_INSTALL/bindings/python/antimony
 
 # build binary wheel
 cd $ANTIMONY_INSTALL/bindings/python
-python2 setup.py bdist_wheel --python-tag=cp27 --plat-name=manylinux1-x86_64
+$PIP install wheel twine
+$PYTHON setup.py bdist_wheel --python-tag=cp27 --plat-name=manylinux1-x86_64
 # fix ABI tag
 # http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
 cd dist
 find . -name 'antimony*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp27mu}" ' -- \{\} \;
 cd ..
 
-echo "Now do something like /Library/Frameworks/Python.framework/Versions/2.7/bin/twine upload -s --sign-with gpg2 -i 9BE0E97B $ROOT/install/antimony-trunk-py2mu/bindings/python/dist/ ..."
+echo "Now do something like /opt/python/cp27-cp27mu/bin/twine upload -s --sign-with gpg -i 9BE0E97B /whlbldr/install/antimony-trunk-py2mu/bindings/python/dist/ ..."
