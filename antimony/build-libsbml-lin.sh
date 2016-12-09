@@ -6,7 +6,7 @@ set -e
 set -o verbose
 
 ROOT=/whlbldr
-export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib64:$LD_LIBRARY_PATH
 export PATH=/whlbldr/install/gcc-5.4.0/bin:$PATH
 export PATH=/whlbldr/tools/bin:$PATH
 export PATH=/whlbldr/install/swig/bin:$PATH

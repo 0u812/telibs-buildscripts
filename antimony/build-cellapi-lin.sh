@@ -9,7 +9,7 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 ROOT=/whlbldr
-export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib64:$LD_LIBRARY_PATH
 export PATH=/whlbldr/install/gcc-5.4.0/bin:$PATH
 export PATH=/whlbldr/tools/bin:$PATH
 export PATH=/whlbldr/install/bison-3.0.4/bin:$PATH

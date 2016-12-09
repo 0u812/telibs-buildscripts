@@ -5,8 +5,8 @@ yum -y install libxml2-devel gpg openssl-devel expat-devel gettext-devel zlib-de
 export PATH=/whlbldr/tools/bin:$PATH
 
 # add gcc paths
-export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib:$LD_LIBRARY_PATH
-#export PATH=/whlbldr/install/gcc-5.4.0/bin:$PATH
+export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib64:$LD_LIBRARY_PATH
+# export PATH=/whlbldr/install/gcc-5.4.0/bin:$PATH
 
 rsync -av /whlbldr/.ssh ~
 
