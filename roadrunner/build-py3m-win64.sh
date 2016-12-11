@@ -51,7 +51,7 @@ $PYTHON_INTERP setup.py bdist_wheel --python-tag=cp35 --plat-name=win_amd64
 # Fix ABI tag
 # http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
 cd dist
-find . -name 'libroadrunner*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp27m}" ' -- \{\} \;
+find . -name 'libroadrunner*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp35m}" ' -- \{\} \;
 cd ..
 
 # copy over setup for rrplugins
