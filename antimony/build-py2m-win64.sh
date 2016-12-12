@@ -42,7 +42,7 @@ cp $CELLAPI/lib/cuses.dll $ANTIMONY_INSTALL/bindings/python/antimony/cuses.dll
 cp $CELLAPI/lib/telicems.dll $ANTIMONY_INSTALL/bindings/python/antimony/telicems.dll
 
 # copy over c++ libs
-cp ~/msvc_runtimes $ANTIMONY_INSTALL/bindings/python/antimony
+cp $ANTIMONY_INSTALL/bin/{msvcp140.dll,vcruntime140.dll} $ANTIMONY_INSTALL/bindings/python/antimony
 
 # build binary wheel
 cd $ANTIMONY_INSTALL/bindings/python
