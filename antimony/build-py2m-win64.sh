@@ -47,11 +47,11 @@ cp $ANTIMONY_INSTALL/bin/{msvcp140.dll,vcruntime140.dll} $ANTIMONY_INSTALL/bindi
 # build binary wheel
 cd $ANTIMONY_INSTALL/bindings/python
 $PIP install wheel twine
-$PYTHON setup.py bdist_wheel --python-tag=cp27 --plat-name=manylinux1-x86_64
+$PYTHON setup.py bdist_wheel --python-tag=cp27 --plat-name=win_amd64
 # fix ABI tag
 # http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
 cd dist
 find . -name 'antimony*none*' -type f -exec bash -c 'mv "$1" "${1/none/cp27m}" ' -- \{\} \;
 cd ..
 
-echo "Now do something like twine upload -s --sign-with gpg -i 9BE0E97B /whlbldr/install/antimony-trunk-py2m/bindings/python/dist/ ..."
+echo "Now do something like twine upload -s --sign-with gpg2 -i 9BE0E97B  C:\Users\phantom\Documents\devel\install\antimony-trunk-py2m\bindings\python\dist\ ..."
