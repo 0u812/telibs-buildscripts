@@ -11,12 +11,15 @@ THIS_DIR=`pwd`
 ROOT=/whlbldr
 
 LIBSBML_PREFIX=$ROOT/install/libsbml-experimental
-LIBSBML=$LIBSBML_PREFIX/lib/libsbml-static.a
+LIBSBML_LIB_DIR=$LIBSBML_PREFIX/lib
+LIBSBML=$LIBSBML_LIB_DIR/libsbml-static.a
 LIBSBML_INCLUDE=$LIBSBML_PREFIX/include
 
 LIBNUML_PREFIX=$ROOT/install/libnuml
 NUML=$LIBNUML_PREFIX/lib/libnuml-static.a
 NUML_INCLUDE=$LIBNUML_PREFIX/include
+
+export CMAKE_PREFIX_PATH=$LIBSBML_LIB_DIR/cmake:$CMAKE_PREFIX_PATH
 
 mkdir -p $ROOT/build/libsedml
 cd $_
