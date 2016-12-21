@@ -11,9 +11,9 @@ THIS_DIR=`pwd`
 ROOT=/whlbldr
 NAME=phrasedml-cp35m
 
-PYTHON=/opt/python/cp35-cp35m/bin/python2
-PIP=/opt/python/cp35-cp35m/bin/pip2
-PYINCLUDE=/opt/python/cp35-cp35m/include/python2.7
+PYTHON=/opt/python/cp35-cp35m/bin/python3
+PIP=/opt/python/cp35-cp35m/bin/pip3
+PYINCLUDE=/opt/python/cp35-cp35m/include/python3.5m
 
 LIBSBML_PREFIX=$ROOT/install/libsbml-experimental-cpp03
 LIBSBML_LIB_DIR=$LIBSBML_PREFIX/lib
