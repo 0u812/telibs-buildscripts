@@ -22,7 +22,7 @@ NUML_INCLUDE=$LIBNUML_PREFIX/include
 
 #SWIG=/whlbldr/install/swig/bin/swig
 
-export CMAKE_PREFIX_PATH=$LIBSBML_LIB_DIR/cmake:$LIBNUML_LIB_DIR/cmake:$CMAKE_PREFIX_PATH
+#export CMAKE_PREFIX_PATH=$LIBSBML_LIB_DIR/cmake:$LIBNUML_LIB_DIR/cmake:$CMAKE_PREFIX_PATH
 
 mkdir -p $ROOT/build/libsedml
 cd $_
