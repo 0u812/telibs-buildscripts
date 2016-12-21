@@ -10,7 +10,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 ROOT=/whlbldr
 
-LIBSBML_PREFIX=$ROOT/install/libsbml-experimental
+LIBSBML_PREFIX=$ROOT/install/libsbml-experimental-cpp03
 LIBSBML_LIB_DIR=$LIBSBML_PREFIX/lib
 LIBSBML=$LIBSBML_LIB_DIR/libsbml-static.a
 LIBSBML_INCLUDE=$LIBSBML_PREFIX/include

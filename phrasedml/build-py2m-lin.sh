@@ -14,8 +14,9 @@ PYTHON=/opt/python/cp27-cp27m/bin/python2
 PIP=/opt/python/cp27-cp27m/bin/pip2
 PYINCLUDE=/opt/python/cp27-cp27m/include/python2.7
 
-LIBSBML_PREFIX=$ROOT/install/libsbml-experimental
-LIBSBML=$LIBSBML_PREFIX/lib/libsbml-static.a
+LIBSBML_PREFIX=$ROOT/install/libsbml-experimental-cpp03
+LIBSBML_LIB_DIR=$LIBSBML_PREFIX/lib
+LIBSBML=$LIBSBML_LIB_DIR/libsbml-static.a
 LIBSBML_INCLUDE=$LIBSBML_PREFIX/include
 
 LIBNUML_PREFIX=$ROOT/install/libnuml
