@@ -1,2 +1,0 @@
-from libcombine import *
-__version__ = '{version}'
