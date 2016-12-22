@@ -1,0 +1,17 @@
+package:
+  name: libcombine
+  version: {version}
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+about:
+  home: https://github.com/0u812/libCombine
+  license: Apache 2.0
+
+extra:
+  maintainers:
+   - Kyle Medley (https://github.com/0u812)
+   - Frank Bergmann
