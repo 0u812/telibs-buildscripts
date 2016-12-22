@@ -47,6 +47,9 @@ rm -rf *
 
 "$CMAKE" --build . --target install --config Release
 
+# copy over c++ libs
+cp $INSTALL_DIR/bin/{msvcp140.dll,vcruntime140.dll} $INSTALL_DIR/bindings/python/phrasedml
+
 cd $INSTALL_DIR/bindings/python
 $PYTHON setup.py bdist_wheel --python-tag=cp27 --plat-name=win_amd64
 
