@@ -58,4 +58,4 @@ cd ..
 cp $THIS_DIR/rrplugins-setup.py $ROOT/install/roadrunner-py3m-win64
 $PYTHON_INTERP rrplugins-setup.py bdist_wheel --universal
 
-echo "Now do something like twine upload $ROOT/install/roadrunner-py3m-win64/dist/*"
+echo "Now do something like twine upload -s --sign-with gpg2 -i 9BE0E97B  C:\Users\phantom\Documents\devel\install\roadrunner-py3m-win64\dist\ ..."
