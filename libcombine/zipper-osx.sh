@@ -9,7 +9,7 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 SRCNAME=zipper
-INSTNAME=$SRCNAME-xcode
+INSTNAME=$SRCNAME-osx-10.9
 ROOT=~/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
 
