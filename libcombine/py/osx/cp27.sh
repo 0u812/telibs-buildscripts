@@ -9,7 +9,6 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 
-TWINE=/Users/phantom/.pyenv/versions/2.7.13/bin/twine
 export CP=cp27
 PYTHON_DIR=/Users/phantom/.pyenv/versions/2.7.13
 export PYTHON=$PYTHON_DIR/bin/python
