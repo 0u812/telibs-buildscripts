@@ -7,5 +7,5 @@ setup(name='libcombinex',
       description='A library for working with COMBINE archives',
       author='Frank Bergmann, Kyle Medley (packaging)',
       url='https://github.com/sbmlteam/libCombine',
-      packages=['libcombine'],
-      package_data={'libcombine': ['*.so*','*.dylib*','lib*']})
+      packages=['libcombinex'],
+      package_data={'libcombinex': ['*.so*','*.dylib*','lib*']})
