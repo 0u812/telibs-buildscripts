@@ -9,6 +9,7 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 
+export CPVER=cp35
 export CP=cp35m
 PYTHON_DIR=/Users/phantom/.pyenv/versions/3.5.2
 export PYTHON=$PYTHON_DIR/bin/python
@@ -22,8 +23,9 @@ cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python3.5/site-packages
 mv $ROOT/install/$INSTNAME/lib/python3.5/site-packages/libcombine/libcombine.py $ROOT/install/$INSTNAME/lib/python3.5/site-packages/libcombine/__init__.py
 cd $ROOT/install/$INSTNAME/lib/python3.5/site-packages
 # rename to libcombinex
+rm -rf libcombinex
 mv libcombine libcombinex
-$PYTHON setup.py bdist_wheel --python-tag=$CP --plat-name=macosx-10.9-x86_64
+$PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
 
 # fix ABI tag http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
 cd dist
