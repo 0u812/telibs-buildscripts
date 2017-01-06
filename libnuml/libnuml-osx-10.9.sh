@@ -10,7 +10,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 SRCNAME=libnuml
 OSX_VER=10.9
-OS_STR=$OS_STR
+OS_STR=osx-$OSX_VER
 INSTNAME=$SRCNAME-$OS_STR
 ROOT=~/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
