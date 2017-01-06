@@ -9,7 +9,6 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 
-OS_STR=osx-$OSX_VER
 SRCNAME=libsbml-experimental
 if [[ -z "${PYTHON+x}" ]]; then
   INSTNAME=$SRCNAME-$OS_STR

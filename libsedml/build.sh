@@ -1,5 +1,34 @@
 #/usr/bin/env zsh
 
+# exit on failure
+set -e
+# echo commands as they are run
+set -o verbose
+
+# cd to the directory of this script
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+THIS_DIR=`pwd`
+SRCNAME=libsedml
+if [[ -z "${PYTHON+x}" ]]; then
+  INSTNAME=$SRCNAME-$OS_STR
+else
+  INSTNAME=$SRCNAME-$OS_STR-$CP
+fi
+
+# clear out CMAKE_PREFIX_PATH just in case
+export CMAKE_PREFIX_PATH=
+
+LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
+LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
+LIBSBML=$LIBSBML_INSTALL_DIR/lib/libsbml-static.a
+LIBSBML_INCLUDE=$LIBSBML_INSTALL_DIR/include
+export CMAKE_PREFIX_PATH="$LIBSBML_INSTALL_DIR/lib/cmake:$CMAKE_PREFIX_PATH"
+
+LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR
+NUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
+NUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
+export CMAKE_PREFIX_PATH="$LIBNUML_INSTALL_DIR/lib/cmake:$CMAKE_PREFIX_PATH"
+
 mkdir -p $ROOT/build/$INSTNAME
 cd $_
 rm -rf *
