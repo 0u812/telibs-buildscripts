@@ -20,9 +20,11 @@ mkdir -p $WHEEL_DIR
 
 # build the project
 source $THIS_DIR/../../libsbml-experimental-osx-10.9.sh
-exit
 # copy over setup.py
 cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+# rename libcombine.py to __init__.py per Frank
+mv $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/libsbml.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/__init__.py
+cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
 
 # fix ABI tag http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
