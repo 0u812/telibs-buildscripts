@@ -9,11 +9,12 @@ set -o verbose
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 OSX_VER=10.9
+OS_STR=osx-$OSX_VER
 SRCNAME=libsbml-experimental
 if [[ -z "${PYTHON+x}" ]]; then
-  INSTNAME=$SRCNAME-osx-$OSX_VER
+  INSTNAME=$SRCNAME-$OS_STR
 else
-  INSTNAME=$SRCNAME-osx-$OSX_VER-$CP
+  INSTNAME=$SRCNAME-$OS_STR-$CP
 fi
 ROOT=~/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
