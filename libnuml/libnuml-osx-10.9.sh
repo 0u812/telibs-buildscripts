@@ -10,11 +10,12 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
 SRCNAME=libnuml
 OSX_VER=10.9
-INSTNAME=$SRCNAME-osx-$OSX_VER
+OS_STR=$OS_STR
+INSTNAME=$SRCNAME-$OS_STR
 ROOT=~/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
 
-LIBSBML_INSTNAME=libsbml-experimental-osx-$OSX_VER
+LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
 LIBSBML=$LIBSBML_INSTALL_DIR/lib/libsbml-static.a
 LIBSBML_INCLUDE=$LIBSBML_INSTALL_DIR/include
