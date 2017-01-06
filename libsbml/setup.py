@@ -43,4 +43,5 @@ setup(name             = "python-libsbml-experimental",
       url              = "http://sbml.org",
       packages         = ["libsbml"],
       package_dir      = {'libsbml': 'libsbml'},
+      package_data     = {'libsbml': ['*.so*', '*.dll', '*.dylib*']}
 )
