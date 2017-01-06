@@ -8,7 +8,7 @@ set -o verbose
 # cd to the directory of this script
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 THIS_DIR=`pwd`
-ROOT=/Users/phantom/devel
+ROOT=~/devel
 
 export CPVER=cp27
 export CP=cp27m
