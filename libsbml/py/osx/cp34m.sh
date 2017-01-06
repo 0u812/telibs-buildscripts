@@ -14,7 +14,7 @@ export CPVER=cp34
 export CP=cp34m
 PYTHON_DIR=/Users/phantom/.pyenv/versions/3.4.5
 export PYTHON=$PYTHON_DIR/bin/python
-export PYTHON_INCLUDE=$PYTHON_DIR/include/python3.4
+export PYTHON_INCLUDE=$PYTHON_DIR/include/python3.4m
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 
