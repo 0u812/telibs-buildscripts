@@ -15,7 +15,7 @@ export CP=cp27m
 PYTHON_DIR=/Users/phantom/.pyenv/versions/2.7.13
 export PYTHON=$PYTHON_DIR/bin/python
 export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
-export WHEEL_DIR=$ROOT/src/wheels/libsbml-experimental
+export WHEEL_DIR=$ROOT/src/wheelhouse/libsbml-experimental
 mkdir -p $WHEEL_DIR
 
 # build the project
