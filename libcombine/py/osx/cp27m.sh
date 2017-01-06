@@ -14,6 +14,8 @@ export CP=cp27m
 PYTHON_DIR=/Users/phantom/.pyenv/versions/2.7.13
 export PYTHON=$PYTHON_DIR/bin/python
 export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
+export WHEEL_DIR=$ROOT/src/wheels/libcombinex
+mkdir -p $WHEEL_DIR
 
 # build the project
 source $THIS_DIR/../../libcombine-osx-10.9.sh
@@ -31,4 +33,4 @@ $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
 cd dist
 find . -name 'libcombine*none*' -type f -exec bash -c 'mv "$1" "${1/none/${CP}}" ' -- \{\} \;
 cd ..
-cp dist/* ~/wheelhouse
+cp dist/* $WHEEL_DIR

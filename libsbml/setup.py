@@ -28,7 +28,7 @@
 
 from setuptools import setup
 
-setup(name             = "libsbml-experimental",
+setup(name             = "python-libsbml-experimental",
       version          = "5.14.1",
       description      = "LibSBML Python API",
       long_description = ("LibSBML is a library for reading, writing and "+
