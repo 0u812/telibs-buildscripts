@@ -18,6 +18,10 @@ fi
 ROOT=/Users/phantom/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
 
+CMAKE_GEN="-GXcode"
+CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
+CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
+
 LIBSBML_INSTNAME=libsbml-experimental-osx-$OSX_VER
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
 LIBSBML=$LIBSBML_INSTALL_DIR/lib/libsbml-static.a
@@ -40,15 +44,4 @@ ZIPPER_INCLUDE_DIR=$ZIPPER_INSTALL_DIR/include
 export CMAKE_PREFIX_PATH="$LIBSBML_INSTALL_DIR/lib/cmake:$LIBNUML_INSTALL_DIR/lib/cmake"
 echo "CMAKE_PREFIX_PATH = $CMAKE_PREFIX_PATH"
 
-mkdir -p $ROOT/build/$INSTNAME
-cd $_
-pwd
-rm -rf *
-if [[ -z "${PYTHON+x}" ]]; then
-  echo "Not building Python bindings"
-  cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$ROOT/install/$INSTNAME -DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER -DLIBSBML_LIBRARY=$LIBSBML -DLIBSBML_INCLUDE_DIR=$LIBSBML_INCLUDE -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_LIBRARY=$ZIPPER -DZIPPER_INCLUDE_DIR=$ZIPPER_INCLUDE_DIR $ROOT/src/$SRCNAME
-else
-  echo "Building Python bindings"
-  cmake -G"Xcode" -DCMAKE_INSTALL_PREFIX=$ROOT/install/$INSTNAME -DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER -DLIBSBML_LIBRARY=$LIBSBML -DLIBSBML_INCLUDE_DIR=$LIBSBML_INCLUDE -DEXTRA_LIBS='xml2;bz2;z;iconv' -DZIPPER_LIBRARY=$ZIPPER -DZIPPER_INCLUDE_DIR=$ZIPPER_INCLUDE_DIR -DWITH_PYTHON=ON -DPYTHON_EXECUTABLE=$PYTHON -DPYTHON_INCLUDE_DIR=$PYTHON_INCLUDE -DPYTHON_USE_DYNAMIC_LOOKUP=ON $ROOT/src/$SRCNAME
-fi
-xcodebuild -configuration Release build install -target install
+source libcombine-build.sh

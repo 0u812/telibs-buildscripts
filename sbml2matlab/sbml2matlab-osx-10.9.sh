@@ -22,6 +22,6 @@ CMAKE_GEN="-GXcode"
 CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
 CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
 
-LIBSBML_PREFIX=$ROOT/install/libsbml-experimental-osx-10.9-cp34m
+LIBSBML_PREFIX=$ROOT/install/libsbml-experimental-osx-$OSX_VER
 
 source sbml2matlab-build.sh
