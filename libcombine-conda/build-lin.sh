@@ -84,6 +84,6 @@ patchelf --set-rpath \$ORIGIN/ $INSROOT/libcombine/lib/python2.7/site-packages/l
 
 cd $INSROOT/libcombine/lib/python2.7/site-packages
 $CONDA build .
-# anaconda fucks with the rpath so you will have to manually extract the archive, fix the rpath, and rezip
+# anaconda messes with the rpath so you will have to manually extract the archive, fix the rpath, and rezip
 # do something like
 # ~/anaconda2/bin/anaconda upload /home/user/miniconda2/conda-bld/osx-64/libcombine-0.1.0-0.tar.bz2
