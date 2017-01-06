@@ -3,6 +3,8 @@
 OSX_VER=10.9
 ROOT=~/devel
 export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
+export WHEEL_DIR=$ROOT/src/wheelhouse
+mkdir -p $WHEEL_DIR
 
 CMAKE_GEN="-GXcode"
 CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
