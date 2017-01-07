@@ -5,15 +5,7 @@ set -e
 # echo commands as they are run
 set -o verbose
 
-export LD_LIBRARY_PATH=/whlbldr/install/gcc-5.4.0/lib64:$LD_LIBRARY_PATH
-export PATH=/whlbldr/install/gcc-5.4.0/bin:$PATH
-export PATH=/whlbldr/tools/bin:$PATH
-export PATH=/whlbldr/install/bison-3.0.4/bin:$PATH
-export PATH=/whlbldr/install/flex-2.6.2/bin:$PATH
-export CC=`which gcc`
-export CXX=`which g++`
-
-OS_STR=cos5-gcc54
+OS_STR=cos5
 ROOT=/whlbldr
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
