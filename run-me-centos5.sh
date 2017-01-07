@@ -13,3 +13,6 @@ rsync -av /whlbldr/.pypirc ~
 
 git config --global user.email 0u812@users.noreply.github.com
 git config --global user.name  0u812
+
+# swig
+export PATH=/whlbldr/install/swig/bin:$PATH
