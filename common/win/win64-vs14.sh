@@ -5,16 +5,14 @@ set -e
 # echo commands as they are run
 set -o verbose
 
-OSX_VER=10.9
-OS_STR=osx-$OSX_VER
-ROOT=~/devel
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VER.sdk
+OS_STR=win64
+ROOT=/c/Users/phantom/Documents/devel
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 
-CMAKE=cmake
-CMAKE_GEN="-GXcode"
-CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
+CMAKE="C:/Users/phantom/Downloads/cmake-3.7.0-win64-x64/bin/cmake"
+CMAKE_GEN=-G"Visual Studio 14 2015 Win64"
+CMAKE_PLATFORM_FLAGS=
 CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
 
 # libSBML
@@ -30,8 +28,8 @@ NUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
 NUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
 
 # CellML
-OMNIIDL=/Users/phantom/etc/install/omniorb-4.2.1/bin/omniidl
-BISON=/usr/local/Cellar/bison/3.0.4/bin/bison
-FLEX=/usr/bin/flex
-FLEXINCL=/usr/include
-CELL_API_CXX_FLAGS="-std=c++0x -stdlib=libc++"
+OMNIIDL="C:\Users\phantom\Documents\exc\src\omniORB-4.2.1-2\omniORB-4.2.1\bin\x86_win32\omniidl.exe"
+BISON="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_bison.exe"
+FLEX="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_flex.exe"
+FLEXINCL="C:/Users/phantom/Downloads/win_flex_bison-2.5.6"
+CELL_API_CXX_FLAGS="/DWIN32_LEAN_AND_MEAN /IC:\Users\phantom\Downloads\win_flex_bison-2.5.6"
