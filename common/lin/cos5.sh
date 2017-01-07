@@ -9,6 +9,7 @@ OS_STR=cos5
 ROOT=/whlbldr
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
+WHEEL_PLATFORM=manylinux1-x86_64
 
 CMAKE=cmake
 CMAKE_GEN="-GUnix Makefiles"
