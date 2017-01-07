@@ -15,8 +15,15 @@ export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
 source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5.sh
 # copy over setup.py
 cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
-# rename libsbml.py to __init__.py
-mv $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/libsbml.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/__init__.py
+# copy over __init__.py
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml
+
+# fix dep libs
+cp /usr/lib64/libbz2.so.1.0.3 $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/libbz2.so.1
+cp /usr/lib64/libxml2.so.2.6.26 $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/libxml2.so.2
+cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/libz.so.1
+patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml/_libsbml.so
+
 cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 
