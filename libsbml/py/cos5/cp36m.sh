@@ -25,6 +25,10 @@ cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/lib/python3.6/site-packages/libs
 patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python3.6/site-packages/libsbml/_libsbml.so
 
 cd $ROOT/install/$INSTNAME/lib/python3.6/site-packages
+# rename to tesbml
+rm -rf tesbml
+mv libsbml tesbml
+
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 
 # fix ABI tag http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory

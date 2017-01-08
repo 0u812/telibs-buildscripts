@@ -28,7 +28,7 @@
 
 from setuptools import setup
 
-setup(name             = "python-libsbml-experimental",
+setup(name             = "tesbml",
       version          = "5.14.1",
       description      = "LibSBML Python API",
       long_description = ("LibSBML is a library for reading, writing and "+
@@ -41,7 +41,7 @@ setup(name             = "python-libsbml-experimental",
       author           = "SBML Team",
       author_email     = "libsbml-team@googlegroups.com",
       url              = "http://sbml.org",
-      packages         = ["libsbml"],
-      package_dir      = {'libsbml': 'libsbml'},
-      package_data     = {'libsbml': ['*.so*', '*.dll', '*.dylib*']}
+      packages         = ["tesbml"],
+      package_dir      = {'tesbml': 'tesbml'},
+      package_data     = {'tesbml': ['*.so*', '*.dll', '*.dylib*']}
 )
