@@ -24,7 +24,7 @@ rm -rf tesedml
 mv libsedml tesedml
 
 # build wheel
-$PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
+$PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 
 # fix ABI tag http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
 cd dist
