@@ -19,9 +19,9 @@ cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsedml/
 
 cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
-# rename to libsedmlx
-rm -rf libsedmlx
-mv libsedml libsedmlx
+# rename to tesedml
+rm -rf tesedml
+mv libsedml tesedml
 
 # build wheel
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64

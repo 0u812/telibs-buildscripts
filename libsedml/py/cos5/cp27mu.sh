@@ -5,20 +5,20 @@ set -e
 # echo commands as they are run
 set -o verbose
 
-export CPVER=cp34
-export CP=cp34m
-PYTHON_DIR=/opt/python/cp34-cp34m
+export CPVER=cp27
+export CP=cp27mu
+PYTHON_DIR=/opt/python/cp27-cp27mu
 export PYTHON=$PYTHON_DIR/bin/python
-export PYTHON_INCLUDE=$PYTHON_DIR/include/python3.4m
+export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
 
 # build the project
 source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5.sh
 # copy over setup.py
-cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python3.4/site-packages
+cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 # copy over __init__.py
-cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python3.4/site-packages/libsedml/
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsedml/
 
-cd $ROOT/install/$INSTNAME/lib/python3.4/site-packages
+cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 # rename to tesedml
 rm -rf tesedml
 mv libsedml tesedml

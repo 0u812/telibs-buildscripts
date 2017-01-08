@@ -28,7 +28,7 @@
 
 from setuptools import setup
 
-setup(name             = "libsedmlx",
+setup(name             = "tesedml",
       version          = "0.4.2",
       description      = "LibSEDML Python API",
       long_description = ("libSEDML is a library for reading, writing and "+
@@ -38,7 +38,7 @@ setup(name             = "libsedmlx",
       license          = "LGPL",
       author           = "Frank T. Bergmann, J Kyle Medley (packaging)",
       url              = "http://sed-ml.org/",
-      packages         = ["libsedmlx"],
-      package_dir      = {'libsedmlx': 'libsedmlx'},
-      package_data     = {'libsedmlx': ['*.so*', '*.dll', '*.dylib*']}
+      packages         = ["tesedml"],
+      package_dir      = {'tesedml': 'tesedml'},
+      package_data     = {'tesedml': ['*.so*', '*.dll', '*.dylib*']}
 )
