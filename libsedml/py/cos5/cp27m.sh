@@ -7,18 +7,23 @@ set -o verbose
 
 export CPVER=cp27
 export CP=cp27m
-PYTHON_DIR=/Users/phantom/.pyenv/versions/2.7.13
+PYTHON_DIR=/opt/python/cp27-cp27m
 export PYTHON=$PYTHON_DIR/bin/python
 export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
 
 # build the project
-source "$( dirname "${BASH_SOURCE[0]}" )"/../../osx-10.9.sh
+source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5.sh
 # copy over setup.py
 cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 # copy over __init__.py
-cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsedml
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsedml/
 
 cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+# rename to libsedmlx
+rm -rf libsedmlx
+mv libsedml libsedmlx
+
+# build wheel
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
 
 # fix ABI tag http://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory
