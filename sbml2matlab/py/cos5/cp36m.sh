@@ -18,6 +18,12 @@ cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python3.6/site-packages
 # copy over __init__.py
 cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python3.6/site-packages/sbml2matlab/
 
+# fix dep libs
+cp /usr/lib64/libbz2.so.1.0.3 $ROOT/install/$INSTNAME/lib/python3.6/site-packages/sbml2matlab/libbz2.so.1
+cp /usr/lib64/libxml2.so.2.6.26 $ROOT/install/$INSTNAME/lib/python3.6/site-packages/sbml2matlab/libxml2.so.2
+cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/lib/python3.6/site-packages/sbml2matlab/libz.so.1
+patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python3.6/site-packages/sbml2matlab/_sbml2matlab.so
+
 cd $ROOT/install/$INSTNAME/lib/python3.6/site-packages
 
 # build wheel
