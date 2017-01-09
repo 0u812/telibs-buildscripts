@@ -15,6 +15,17 @@ CMAKE=cmake
 CMAKE_GEN="-GUnix Makefiles"
 CMAKE_PLATFORM_FLAGS=
 CMAKE_BUILD_CMD="make -j4 && make install"
+SWIG=/whlbldr/install/swig/bin/swig
+
+# libSBML deps
+LIBBZIP2=/usr/lib64/libbz2.so
+LIBBZIP2_INCLUDE=/usr/include
+LIBICONV=
+LIBXML2=/usr/lib64/libxml2.so
+LIBXML2_INCLUDE=/usr/include/libxml2
+ZLIB=/usr/lib64/libz.so
+ZLIB_INCLUDE=/usr/include
+CMAKE_ICONV_FLAGS=
 
 # libSBML
 LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
