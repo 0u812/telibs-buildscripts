@@ -17,13 +17,13 @@ CMAKE_BUILD_CMD="\"$CMAKE\" --build . --target install --config Release"
 SWIG="C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe"
 
 # libSBML deps
-LIBBZIP2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/lib/libbz2.lib"
-LIBBZIP2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/include"
-LIBICONV="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/lib/libiconv.lib"
-LIBXML2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/lib/libxml2.lib"
-LIBXML2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/include/libxml"
-ZLIB="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/lib/zdll.lib"
-ZLIB_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML Dependencies-1.0.0-b1-win64/include"
+LIBBZIP2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libbz2.lib"
+LIBBZIP2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
+LIBICONV="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libiconv.lib"
+LIBXML2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libxml2.lib"
+LIBXML2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include/libxml"
+ZLIB="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/zdll.lib"
+ZLIB_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
 CMAKE_ICONV_FLAGS=( -DICONV_LIBRARY="$LIBICONV" )
 
 # libSBML
