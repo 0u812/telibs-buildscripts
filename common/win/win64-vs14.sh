@@ -21,7 +21,7 @@ LIBBZIP2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x
 LIBBZIP2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
 LIBICONV="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libiconv.lib"
 LIBXML2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libxml2.lib"
-LIBXML2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include/libxml"
+LIBXML2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
 ZLIB="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/zdll.lib"
 ZLIB_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
 CMAKE_ICONV_FLAGS=( -DICONV_LIBRARY="$LIBICONV" )

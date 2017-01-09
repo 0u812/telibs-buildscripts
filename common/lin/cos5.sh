@@ -11,7 +11,7 @@ export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 WHEEL_PLATFORM=manylinux1-x86_64
 
-CMAKE=cmake
+CMAKE=/whlbldr/tools/bin/cmake
 CMAKE_GEN="-GUnix Makefiles"
 CMAKE_PLATFORM_FLAGS=
 CMAKE_BUILD_CMD="make -j4 && make install"
