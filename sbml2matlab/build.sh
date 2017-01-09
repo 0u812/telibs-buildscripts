@@ -2,6 +2,9 @@
 
 # PHONY_PYLIB=/usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
 
+# cd to the directory of this script
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+THIS_DIR=`pwd`
 SRCNAME=sbml2matlab
 if [[ -z "${PYTHON+x}" ]]; then
   INSTNAME=$SRCNAME-$OS_STR

@@ -9,6 +9,7 @@ OS_STR=win64-vs14
 ROOT="C:/Users/phantom/Documents/devel"
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
+WHEEL_PLATFORM=win_amd64
 
 CMAKE="C:/Users/phantom/Downloads/cmake-3.7.0-win64-x64/bin/cmake"
 CMAKE_GEN=-G"Visual Studio 14 2015 Win64"

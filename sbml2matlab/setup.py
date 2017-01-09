@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='sbml2matlab',
-      version='0.9.0',
+      version='0.9.1',
       description='An SBML to MATLAB translator',
       author='Stanley Gu, Lucian Smith',
       author_email='stanleygu@gmail.com, lucianoelsmitho@gmail.com',
