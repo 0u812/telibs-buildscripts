@@ -5,15 +5,15 @@ set -e
 # echo commands as they are run
 set -o verbose
 
-OS_STR=win64
-ROOT=/c/Users/phantom/Documents/devel
+OS_STR=win64-vs14
+ROOT="C:/Users/phantom/Documents/devel"
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 
 CMAKE="C:/Users/phantom/Downloads/cmake-3.7.0-win64-x64/bin/cmake"
 CMAKE_GEN=-G"Visual Studio 14 2015 Win64"
 CMAKE_PLATFORM_FLAGS=
-CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
+CMAKE_BUILD_CMD="\"$CMAKE\" --build . --target install --config Release"
 
 # libSBML
 LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
