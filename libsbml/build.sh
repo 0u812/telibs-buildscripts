@@ -12,7 +12,7 @@ THIS_DIR=`pwd`
 SRCNAME=libsbml-experimental
 LIBSBMLNS=${LIBSBMLNS-ON}
 echo "Namespaces: $LIBSBMLNS"
-if [ "$LIBSBMLNS" -eq OFF ]
+if [ "$LIBSBMLNS" -eq OFF ]; then
   SRCNAME="$SRCNAME"-nons
 fi
 
