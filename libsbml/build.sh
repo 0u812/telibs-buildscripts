@@ -12,14 +12,15 @@ THIS_DIR=`pwd`
 SRCNAME=libsbml-experimental
 LIBSBMLNS=${LIBSBMLNS-ON}
 echo "Namespaces: $LIBSBMLNS"
-if [ "$LIBSBMLNS" -eq OFF ]; then
-  SRCNAME="$SRCNAME"-nons
-fi
 
 if [[ -z "${PYTHON+x}" ]]; then
   INSTNAME=$SRCNAME-$OS_STR
 else
   INSTNAME=$SRCNAME-$OS_STR-$CP
+fi
+
+if [[ "$LIBSBMLNS" -eq "OFF" ]]; then
+  INSTNAME="$INSTNAME"-nons
 fi
 
 mkdir -p $ROOT/build/$INSTNAME
