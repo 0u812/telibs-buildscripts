@@ -2,10 +2,10 @@
 
 from setuptools import setup
 
-setup(name='libcombinex',
-      version='0.1.0',
+setup(name='tecombine',
+      version='0.2.0',
       description='A library for working with COMBINE archives',
       author='Frank Bergmann, Kyle Medley (packaging)',
       url='https://github.com/sbmlteam/libCombine',
-      packages=['libcombinex'],
-      package_data={'libcombinex': ['*.so*','*.dylib*','lib*']})
+      packages=['tecombine'],
+      package_data={'tecombine': ['*.so*','*.dylib*','lib*']})
