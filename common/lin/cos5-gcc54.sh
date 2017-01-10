@@ -17,6 +17,7 @@ OS_STR=cos5-gcc54
 ROOT=/whlbldr
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
+WHEEL_PLATFORM=manylinux1-x86_64
 
 CMAKE=/whlbldr/tools/bin/cmake
 CMAKE_GEN="-GUnix Makefiles"
@@ -52,3 +53,15 @@ BISON=bison
 FLEX=flex
 FLEXINCL=/whlbldr/install/flex-2.6.2/include
 CELL_API_CXX_FLAGS="-std=c++11 -I/whlbldr/install/flex-2.6.2/include"
+
+# zipper
+ZIPPER_INSTNAME=zipper-$OS_STR
+ZIPPER_INSTALL_DIR=$ROOT/install/$ZIPPER_INSTNAME
+ZIPPER=$ZIPPER_INSTALL_DIR/lib/libZipper-static.a
+ZIPPER_INCLUDE_DIR=$ZIPPER_INSTALL_DIR/include
+
+# libSEDML
+LIBSEDML_INSTNAME=libsedml-$OS_STR
+LIBSEDML_INSTALL_DIR=$ROOT/install/$LIBSEDML_INSTNAME
+LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.a
+LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
