@@ -35,6 +35,12 @@ ZLIB=/usr/lib64/libz.so
 ZLIB_INCLUDE=/usr/include
 CMAKE_ICONV_FLAGS=
 
+if [[ "$LIBSBMLNS" == "OFF" ]]; then
+  LIBSBML_NSSTR="-nons"
+else
+  LIBSBML_NSSTR=
+fi
+
 # libSBML
 LIBSBML_INSTNAME=libsbml-experimental-$OS_STR$LIBSBML_NSSTR
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
