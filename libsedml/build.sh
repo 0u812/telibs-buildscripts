@@ -15,6 +15,10 @@ else
   INSTNAME=$SRCNAME-$OS_STR-$CP
 fi
 
+if [[ "$LIBSBMLNS" == "OFF" ]]; then
+  INSTNAME="$INSTNAME"-nons
+fi
+
 export CMAKE_PREFIX_PATH="$LIBSBML_INSTALL_DIR/lib/cmake:$LIBNUML_INSTALL_DIR/lib/cmake:$CMAKE_PREFIX_PATH"
 
 mkdir -p $ROOT/build/$INSTNAME

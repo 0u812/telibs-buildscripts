@@ -17,16 +17,25 @@ CMAKE=cmake
 CMAKE_GEN="-GXcode"
 CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
 CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
+# TODO: add swig
+
+# TODO: add libsbml deps
+
+if [[ "$LIBSBMLNS" == "OFF" ]]; then
+  LIBSBML_NSSTR="-nons"
+else
+  LIBSBML_NSSTR=
+fi
 
 # libSBML
-LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
+LIBSBML_INSTNAME=libsbml-experimental-$OS_STR$LIBSBML_NSSTR
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
 LIBSBML=$LIBSBML_INSTALL_DIR/lib/libsbml-static.a
 LIBSBML_INCLUDE=$LIBSBML_INSTALL_DIR/include
 LIBSBML_EXTRA_LIBS='xml2;bz2;z;iconv'
 
 # libNuML
-LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR
+LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR$LIBSBML_NSSTR
 NUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
 NUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
 
