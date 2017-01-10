@@ -36,8 +36,8 @@ LIBSBML_EXTRA_LIBS='xml2;bz2;z;iconv'
 
 # libNuML
 LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR$LIBSBML_NSSTR
-NUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
-NUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
+LIBNUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
+LIBNUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
 
 # CellML
 OMNIIDL=/Users/phantom/etc/install/omniorb-4.2.1/bin/omniidl

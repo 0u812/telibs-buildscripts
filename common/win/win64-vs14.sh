@@ -27,6 +27,12 @@ ZLIB="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/l
 ZLIB_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"
 CMAKE_ICONV_FLAGS=( -DLIBICONV_LIBRARY="$LIBICONV" )
 
+if [[ "$LIBSBMLNS" == "OFF" ]]; then
+  LIBSBML_NSSTR="-nons"
+else
+  LIBSBML_NSSTR=
+fi
+
 # libSBML
 LIBSBML_INSTNAME=libsbml-experimental-$OS_STR
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
@@ -35,9 +41,9 @@ LIBSBML_INCLUDE=$LIBSBML_INSTALL_DIR/include
 LIBSBML_EXTRA_LIBS='xml2;bz2;z;iconv'
 
 # libNuML
-LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR
-NUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
-NUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
+LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR$LIBSBML_NSSTR
+LIBNUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
+LIBNUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
 
 # CellML
 OMNIIDL="C:\Users\phantom\Documents\exc\src\omniORB-4.2.1-2\omniORB-4.2.1\bin\x86_win32\omniidl.exe"
