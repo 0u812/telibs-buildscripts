@@ -6,7 +6,7 @@ set -e
 set -o verbose
 
 # build the project
-source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5-gcc54.sh
+source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5.sh
 # copy over setup.py
 cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
 # copy over __init__.py
