@@ -15,6 +15,10 @@ else
   INSTNAME=$SRCNAME-$OS_STR-$CP
 fi
 
+if [[ "$LIBSBMLNS" == "OFF" ]]; then
+  INSTNAME="$INSTNAME"-nons
+fi
+
 mkdir -p $ROOT/build/$INSTNAME
 cd $_
 pwd
