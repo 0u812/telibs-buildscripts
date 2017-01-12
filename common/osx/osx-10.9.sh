@@ -17,9 +17,17 @@ CMAKE=cmake
 CMAKE_GEN="-GXcode"
 CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
 CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
-# TODO: add swig
+SWIG=/usr/local/bin/swig
 
-# TODO: add libsbml deps
+# libSBML deps
+LIBBZIP2=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libbz2.1.0.dylib
+LIBBZIP2_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include
+LIBICONV=
+LIBXML2=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libxml2.2.dylib
+LIBXML2_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2
+ZLIB=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libz.1.2.5.dylib
+ZLIB_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include
+CMAKE_ICONV_FLAGS=
 
 if [[ "$LIBSBMLNS" == "OFF" ]]; then
   LIBSBML_NSSTR="-nons"
@@ -45,3 +53,15 @@ BISON=/usr/local/Cellar/bison/3.0.4/bin/bison
 FLEX=/usr/bin/flex
 FLEXINCL=/usr/include
 CELL_API_CXX_FLAGS="-std=c++0x -stdlib=libc++"
+
+# zipper
+ZIPPER_INSTNAME=zipper-$OS_STR
+ZIPPER_INSTALL_DIR=$ROOT/install/$ZIPPER_INSTNAME
+ZIPPER=$ZIPPER_INSTALL_DIR/lib/libZipper-static.a
+ZIPPER_INCLUDE_DIR=$ZIPPER_INSTALL_DIR/include
+
+# libSEDML
+LIBSEDML_INSTNAME=libsedml-$OS_STR$LIBSBML_NSSTR
+LIBSEDML_INSTALL_DIR=$ROOT/install/$LIBSEDML_INSTNAME
+LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.a
+LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
