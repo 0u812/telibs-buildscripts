@@ -8,9 +8,9 @@ set -o verbose
 # build the project
 source "$( dirname "${BASH_SOURCE[0]}" )"/../../cos5.sh
 # copy over setup.py
-cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
 # copy over __init__.py
-cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/$SRCNAME
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages/$SRCNAME
 
 # fix dep libs
 cp /usr/lib64/libbz2.so.1.0.3 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/$SRCNAME/libbz2.so.1
@@ -18,7 +18,7 @@ cp /usr/lib64/libxml2.so.2.6.26 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-p
 cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/$SRCNAME/libz.so.1
 patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/$SRCNAME/_$SRCNAME.so
 
-cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+cd $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
 # rename to tecombine
 rm -rf tecombine
 mv $SRCNAME tecombine
