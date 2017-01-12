@@ -21,7 +21,7 @@ patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python$PYVER2/site-
 cd $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
 # rename to tesbml
 rm -rf tesbml
-mv $SRCNAME tesbml
+mv libsbml tesbml
 
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 
