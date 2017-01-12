@@ -16,7 +16,7 @@ cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packag
 cp /usr/lib64/libbz2.so.1.0.3 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/libsbml/libbz2.so.1
 cp /usr/lib64/libxml2.so.2.6.26 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/libsbml/libxml2.so.2
 cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/libsbml/libz.so.1
-patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/libsbml/_$SRCNAME.so
+patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/lib/python$PYVER2/site-packages/libsbml/_libsbml.so
 
 cd $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
 # rename to tesbml
