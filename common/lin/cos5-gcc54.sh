@@ -55,10 +55,13 @@ LIBNUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
 
 # CellML
 OMNIIDL=/whlbldr/install/omniorb-4.2.1/bin/omniidl
-BISON=bison
-FLEX=flex
+BISON=/whlbldr/install/bison-3.0.4/bin/bison
+FLEX=/whlbldr/install/flex-2.6.2/bin/flex
 FLEXINCL=/whlbldr/install/flex-2.6.2/include
 CELL_API_CXX_FLAGS="-std=c++11 -I/whlbldr/install/flex-2.6.2/include"
+CELL_API_C_FLAGS="-I/whlbldr/install/flex-2.6.2/include"
+
+CELLAPI=$ROOT/install/cell-api-cos5-gcc54
 
 # zipper
 ZIPPER_INSTNAME=zipper-$OS_STR
