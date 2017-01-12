@@ -1,9 +1,9 @@
 #/usr/bin/env bash
 
-export CPVER=cp27
-export CP=cp27m
-PYVER2=2.7
-PYTHON_DIR=/opt/python/${CPVER}-${CP}
+export CPVER=cp35
+export CP=cp35m
+PYVER2=3.5
+PYTHON_DIR=/opt/python/${CPVER}-${CP}m
 
 export PYTHON=$PYTHON_DIR/bin/python
 export PYTHON_INCLUDE=$PYTHON_DIR/include/python${PYVER2}

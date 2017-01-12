@@ -37,6 +37,11 @@ if [[ `uname` == "Linux" ]]; then
   cp $CELLAPI/lib/libcuses.so.1.13 $ROOT/install/$INSTNAME/bindings/python/antimony/libcuses.so.1
   cp $CELLAPI/lib/libtelicems.so.1.13 $ROOT/install/$INSTNAME/bindings/python/antimony/libtelicems.so.1
 
+  # copy libsbml dep libs
+  cp /usr/lib64/libbz2.so.1.0.3 $ROOT/install/$INSTNAME/bindings/python/$SRCNAME/libbz2.so.1
+  cp /usr/lib64/libxml2.so.2.6.26 $ROOT/install/$INSTNAME/bindings/python/$SRCNAME/libxml2.so.2
+  cp /lib64/libz.so.1.2.3 $ROOT/install/$INSTNAME/bindings/python/$SRCNAME/libz.so.1
+
   patchelf --set-rpath '$ORIGIN/.' $ROOT/install/$INSTNAME/bindings/python/antimony/_antimony.so
 
   # copy over c++ libs

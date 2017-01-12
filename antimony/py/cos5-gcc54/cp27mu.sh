@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 export CPVER=cp27
-export CP=cp27m
+export CP=cp27mu
 PYVER2=2.7
 PYTHON_DIR=/opt/python/${CPVER}-${CP}
 
