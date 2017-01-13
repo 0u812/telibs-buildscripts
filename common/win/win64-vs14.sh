@@ -5,6 +5,8 @@ set -e
 # echo commands as they are run
 set -o verbose
 
+ISWIN=TRUE
+
 OS_STR=win64-vs14
 ROOT="C:/Users/phantom/Documents/devel"
 export WHEEL_DIR=$ROOT/src/wheelhouse
@@ -51,3 +53,6 @@ BISON="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_bison.exe"
 FLEX="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_flex.exe"
 FLEXINCL="C:/Users/phantom/Downloads/win_flex_bison-2.5.6"
 CELL_API_CXX_FLAGS="/DWIN32_LEAN_AND_MEAN /IC:\Users\phantom\Downloads\win_flex_bison-2.5.6"
+
+# roadrunner deps
+RR_DEPS_WIN_SPECIFIC_OPTIONS=( -DCMAKE_MC_COMPILER="$MC" )
