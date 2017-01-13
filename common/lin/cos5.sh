@@ -11,9 +11,11 @@ export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 WHEEL_PLATFORM=manylinux1-x86_64
 
+NUMPY_INCLUDE=/opt/python/cp27-cp27m/lib/python2.7/site-packages/numpy/core/include
+
 CMAKE=/whlbldr/tools/bin/cmake
 CMAKE_GEN="-GUnix Makefiles"
-CMAKE_PLATFORM_FLAGS=
+CMAKE_PLATFORM_FLAGS=( -DCMAKE_CXX_FLAGS="-I$NUMPY_INCLUDE" )
 CMAKE_BUILD_CMD="make -j4 && make install"
 SWIG=/whlbldr/install/swig/bin/swig
 
@@ -63,3 +65,8 @@ LIBSEDML_INSTNAME=libsedml-$OS_STR$LIBSBML_NSSTR
 LIBSEDML_INSTALL_DIR=$ROOT/install/$LIBSEDML_INSTNAME
 LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.a
 LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
+
+# roadrunner
+LLVM_CONFIG=/whlbldr/install/llvm-3.3/bin/llvm-config
+RR_CPP11=FALSE
+RR_TR1_NS=TRUE
