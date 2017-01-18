@@ -19,6 +19,8 @@ if [[ "$LIBSBMLNS" == "OFF" ]]; then
   INSTNAME="$INSTNAME"-nons
 fi
 
+# -DCMAKE_CXX_FLAGS="-DLIBSBML_CPP_NAMESPACE_USE='using namespace libsbml; using namespace libnuml; using namespace libsedml; using namespace libcombine;'"
+
 mkdir -p $ROOT/build/$INSTNAME
 cd $_
 pwd
