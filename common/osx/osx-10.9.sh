@@ -53,6 +53,7 @@ BISON=/usr/local/Cellar/bison/3.0.4/bin/bison
 FLEX=/usr/bin/flex
 FLEXINCL=/usr/include
 CELL_API_CXX_FLAGS="-std=c++0x -stdlib=libc++"
+CELLAPI=$ROOT/install/cell-api-osx-10.9
 
 # zipper
 ZIPPER_INSTNAME=zipper-$OS_STR
