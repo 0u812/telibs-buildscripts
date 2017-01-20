@@ -60,7 +60,6 @@ FLEX=/whlbldr/install/flex-2.6.2/bin/flex
 FLEXINCL=/whlbldr/install/flex-2.6.2/include
 CELL_API_CXX_FLAGS="-std=c++11 -I/whlbldr/install/flex-2.6.2/include"
 CELL_API_C_FLAGS="-I/whlbldr/install/flex-2.6.2/include"
-
 CELLAPI=$ROOT/install/cell-api-cos5-gcc54
 
 # zipper
