@@ -19,11 +19,11 @@ export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 
 # build the project
-source $THIS_DIR/../../sbml2matlab-osx-10.9.sh
+source $THIS_DIR/../../osx-10.9.sh
 # copy over setup.py
 cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python3.5/site-packages
-# rename libcombine.py to __init__.py per Frank
-mv $ROOT/install/$INSTNAME/lib/python3.5/site-packages/sbml2matlab/sbml2matlab.py $ROOT/install/$INSTNAME/lib/python3.5/site-packages/sbml2matlab/__init__.py
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python3.5/site-packages/sbml2matlab
+
 cd $ROOT/install/$INSTNAME/lib/python3.5/site-packages
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=macosx-10.9-x86_64
 
