@@ -38,14 +38,22 @@ fi
 # libSBML
 LIBSBML_INSTNAME=libsbml-experimental-$OS_STR$LIBSBML_NSSTR
 LIBSBML_INSTALL_DIR=$ROOT/install/$LIBSBML_INSTNAME
-LIBSBML=$LIBSBML_INSTALL_DIR/lib/libsbml-static.a
+LIBSBML_STATIC=$LIBSBML_INSTALL_DIR/lib/libsbml-static.lib
 LIBSBML_INCLUDE=$LIBSBML_INSTALL_DIR/include
-LIBSBML_EXTRA_LIBS="$LIBXML2;$LIBBZIP2;$ZLIB;$LIBICONV"
+LIBSBML_EXTRA_LIBS="$LIBXML2;$LIBBZIP2;$ZLIB;$LIBICONV;ws2_32.lib"
 
 # libNuML
 LIBNUML_INSTALL_DIR=$ROOT/install/libnuml-$OS_STR$LIBSBML_NSSTR
-LIBNUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.a
+LIBNUML=$LIBNUML_INSTALL_DIR/lib/libnuml-static.lib
 LIBNUML_INCLUDE=$LIBNUML_INSTALL_DIR/include
+
+# CellML
+OMNIIDL="C:\Users\phantom\Documents\exc\src\omniORB-4.2.1-2\omniORB-4.2.1\bin\x86_win32\omniidl.exe"
+BISON="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_bison.exe"
+FLEX="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_flex.exe"
+FLEXINCL="C:/Users/phantom/Downloads/win_flex_bison-2.5.6"
+CELL_API_CXX_FLAGS="/DWIN32_LEAN_AND_MEAN /IC:\Users\phantom\Downloads\win_flex_bison-2.5.6"
+CELLAPI=$ROOT/install/cell-api-$OS_STR
 
 # zipper
 ZIPPER_INSTNAME=zipper-$OS_STR
@@ -58,13 +66,6 @@ LIBSEDML_INSTNAME=libsedml-$OS_STR$LIBSBML_NSSTR
 LIBSEDML_INSTALL_DIR=$ROOT/install/$LIBSEDML_INSTNAME
 LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.lib
 LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
-
-# CellML
-OMNIIDL="C:\Users\phantom\Documents\exc\src\omniORB-4.2.1-2\omniORB-4.2.1\bin\x86_win32\omniidl.exe"
-BISON="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_bison.exe"
-FLEX="C:/Users/phantom/Downloads/win_flex_bison-2.5.6/win_flex.exe"
-FLEXINCL="C:/Users/phantom/Downloads/win_flex_bison-2.5.6"
-CELL_API_CXX_FLAGS="/DWIN32_LEAN_AND_MEAN /IC:\Users\phantom\Downloads\win_flex_bison-2.5.6"
 
 # roadrunner deps
 RR_DEPS_WIN_SPECIFIC_OPTIONS=( -DCMAKE_MC_COMPILER="$MC" )
