@@ -8,11 +8,11 @@ set -o verbose
 # build the project
 source "$( dirname "${BASH_SOURCE[0]}" )"/../../win64-vs14.sh
 # copy over setup.py
-cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
+cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/bindings/python
 # copy over __init__.py
-cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages/$SRCNAME
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/bindings/python/$SRCNAME
 
-cd $ROOT/install/$INSTNAME/lib/python${PYVER2}/site-packages
+cd $ROOT/install/$INSTNAME/bindings/python
 # rename to tecombine
 rm -rf tecombine
 mv $SRCNAME tecombine
