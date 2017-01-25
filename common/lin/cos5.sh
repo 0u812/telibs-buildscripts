@@ -10,6 +10,7 @@ ROOT=/whlbldr
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 WHEEL_PLATFORM=manylinux1-x86_64
+EVSEP=":"
 
 NUMPY_INCLUDE=/opt/python/cp27-cp27m/lib/python2.7/site-packages/numpy/core/include
 

@@ -12,6 +12,7 @@ export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platf
 export WHEEL_DIR=$ROOT/src/wheelhouse
 mkdir -p $WHEEL_DIR
 WHEEL_PLATFORM=macosx-10.9-x86_64
+EVSEP=":"
 
 CMAKE=cmake
 CMAKE_GEN="-GXcode"
