@@ -16,7 +16,7 @@ EVSEP=":"
 
 CMAKE=cmake
 CMAKE_GEN="-GXcode"
-CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" )
+CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" "-DCMAKE_CXX_FLAGS=-I$NUMPY_INCLUDE" )
 CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
 SWIG=/usr/local/bin/swig
 
@@ -67,3 +67,8 @@ LIBSEDML_INSTNAME=libsedml-$OS_STR$LIBSBML_NSSTR
 LIBSEDML_INSTALL_DIR=$ROOT/install/$LIBSEDML_INSTNAME
 LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.a
 LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
+
+# roadrunner
+LLVM_CONFIG=/Users/phantom/etc/install/llvm-3.5.2-xcode/bin/llvm-config
+RR_CPP11=FALSE
+RR_TR1_NS=OFF
