@@ -8,4 +8,4 @@ setup(name='tecombine',
       author='Frank Bergmann, Kyle Medley (packaging)',
       url='https://github.com/sbmlteam/libCombine',
       packages=['tecombine'],
-      package_data={'tecombine': ['*.so*','*.dylib*','lib*']})
+      package_data={'tecombine': ['*.so*','*.dylib*','lib*','*.dll']})

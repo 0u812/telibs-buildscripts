@@ -1,30 +1,24 @@
-#/usr/bin/env zsh
+#/usr/bin/env bash
 
 # exit on failure
 set -e
 # echo commands as they are run
 set -o verbose
 
-export CPVER=cp27
-export CP=cp27m
-PYTHON_DIR="C:/Pythons/win64-vs14/cp27m"
-export PYTHON=$PYTHON_DIR/bin/python
-export PYTHON_INCLUDE=$PYTHON_DIR/include/python2.7
-
 # build the project
 source "$( dirname "${BASH_SOURCE[0]}" )"/../../win64-vs14.sh
 # copy over setup.py
-cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/bindings/python
 # copy over __init__.py
-cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/lib/python2.7/site-packages/libsbml
+cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/bindings/python/$SRCNAME
 
-# fix dep libs
-# TODO
+# copy MSVC runtimes
+for rt in ${VCRUNTIMES[*]}; do echo $rt && cp $rt $ROOT/install/$INSTNAME/bindings/python/$SRCNAME; done
 
-cd $ROOT/install/$INSTNAME/lib/python2.7/site-packages
+cd $ROOT/install/$INSTNAME/bindings/python
 # rename to tesbml
 rm -rf tesbml
-mv libsbml tesbml
+mv $SRCNAME tesbml
 
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 

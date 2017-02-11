@@ -20,6 +20,11 @@ CMAKE_PLATFORM_FLAGS=
 CMAKE_BUILD_CMD="\"$CMAKE\" --build . --target install --config Release"
 SWIG="C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe"
 
+# runtimes
+VCRUNTIME1="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/bin/msvcp140.dll"
+VCRUNTIME2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/bin/vcruntime140.dll"
+VCRUNTIMES=( "$VCRUNTIME1" "$VCRUNTIME2" )
+
 # libSBML deps
 LIBBZIP2="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/lib/libbz2.lib"
 LIBBZIP2_INCLUDE="C:/Users/phantom/Downloads/libsbml/libSBML_dependencies_vs14_release_x64/libSBML-Dependencies-1.0.0-b1-win64/include"

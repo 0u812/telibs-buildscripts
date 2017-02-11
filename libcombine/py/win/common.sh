@@ -12,6 +12,9 @@ cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/bindings/python
 # copy over __init__.py
 cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/bindings/python/$SRCNAME
 
+# copy MSVC runtimes
+for rt in ${VCRUNTIMES[*]}; do echo $rt && cp $rt $ROOT/install/$INSTNAME/bindings/python/$SRCNAME; done
+
 cd $ROOT/install/$INSTNAME/bindings/python
 # rename to tecombine
 rm -rf tecombine
