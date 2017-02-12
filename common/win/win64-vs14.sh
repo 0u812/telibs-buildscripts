@@ -61,6 +61,9 @@ FLEXINCL="C:/Users/phantom/Downloads/win_flex_bison-2.5.6"
 CELL_API_CXX_FLAGS="//IC:\Users\phantom\Downloads\win_flex_bison-2.5.6"
 CELLAPI=$ROOT/install/cell-api-$OS_STR
 
+# Antimony
+ANTIMONY_EXTRA_LIBS="ws2_32.lib"
+
 # zipper
 ZIPPER_INSTNAME=zipper-$OS_STR
 ZIPPER_INSTALL_DIR=$ROOT/install/$ZIPPER_INSTNAME
