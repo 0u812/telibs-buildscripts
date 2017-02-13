@@ -13,7 +13,7 @@ cp $THIS_DIR/setup.py $ROOT/install/$INSTNAME/bindings/python
 cp $THIS_DIR/__init__.py $ROOT/install/$INSTNAME/bindings/python/$SRCNAME
 
 # copy MSVC runtimes
-for rt in ${VCRUNTIMES[*]}; do echo $rt && cp $rt $ROOT/install/$INSTNAME/bindings/python/$SRCNAME; done
+for rt in ${VCRUNTIMES[*]}; do echo $rt && cp $rt $ROOT/install/$INSTNAME/bindings/python/libsbml; done
 
 cd $ROOT/install/$INSTNAME/bindings/python
 # rename to tesbml
