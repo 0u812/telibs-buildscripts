@@ -18,7 +18,7 @@ for rt in ${VCRUNTIMES[*]}; do echo $rt && cp $rt $ROOT/install/$INSTNAME/bindin
 cd $ROOT/install/$INSTNAME/bindings/python
 # rename to tesbml
 rm -rf tesbml
-mv $SRCNAME tesbml
+mv libsbml tesbml
 
 $PYTHON setup.py bdist_wheel --python-tag=$CPVER --plat-name=$WHEEL_PLATFORM
 
