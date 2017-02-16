@@ -77,4 +77,5 @@ LIBSEDML=$LIBSEDML_INSTALL_DIR/lib/libsedml-static.lib
 LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
 
 # roadrunner deps
-RR_DEPS_WIN_SPECIFIC_OPTIONS=( -DCMAKE_MC_COMPILER="$MC" )
+#MC="C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/Bin/MC.Exe"
+RR_DEPS_WIN_SPECIFIC_OPTIONS=-DCMAKE_MC_COMPILER="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\MC.Exe"
