@@ -5,10 +5,10 @@ set -e
 # echo commands as they are run
 set -o verbose
 
-NUMPY_INCLUDE=$PYTHON_DIR/lib/python${PYVER2}/site-packages/numpy/core/include
+NUMPY_INCLUDE=$PYTHON_DIR/Lib/python${PYVER2}/site-packages/numpy/core/include
 
 # build the project
-source "$( dirname "${BASH_SOURCE[0]}" )"/../../osx-10.9.sh
+source "$( dirname "${BASH_SOURCE[0]}" )"/../../win64-vs14.sh
 
 cd $ROOT/install/$INSTNAME
 

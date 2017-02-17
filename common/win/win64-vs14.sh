@@ -16,7 +16,7 @@ EVSEP=";"
 
 CMAKE="C:/Users/phantom/Downloads/cmake-3.7.0-win64-x64/bin/cmake"
 CMAKE_GEN=-G"Visual Studio 14 2015 Win64"
-CMAKE_PLATFORM_FLAGS=
+CMAKE_PLATFORM_FLAGS=( "-DCMAKE_CXX_FLAGS=-I$NUMPY_INCLUDE" )
 CMAKE_BUILD_CMD="\"$CMAKE\" --build . --target install --config Release"
 SWIG="C:/Users/phantom/Downloads/swig/swigwin-3.0.5/swig.exe"
 
@@ -79,3 +79,8 @@ LIBSEDML_INCLUDE=$LIBSEDML_INSTALL_DIR/include
 # roadrunner deps
 #MC="C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/Bin/MC.Exe"
 RR_DEPS_WIN_SPECIFIC_OPTIONS=-DCMAKE_MC_COMPILER="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\MC.Exe"
+
+# roadrunner
+LLVM_CONFIG="C:/Users/phantom/Documents/exc/install/llvm-3.5.2-vs14-64/bin/llvm-config.exe"
+RR_CPP11=FALSE
+RR_TR1_NS=OFF
