@@ -14,10 +14,10 @@ mkdir -p $WHEEL_DIR
 WHEEL_PLATFORM=macosx-10.9-x86_64
 EVSEP=":"
 
-CMAKE=cmake
+CMAKE="/Users/phantom/etc/install/cmake-3.4.1/bin/cmake"
 CMAKE_GEN="-GXcode"
 CMAKE_PLATFORM_FLAGS=( "-DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VER" "-DCMAKE_CXX_FLAGS=-I$NUMPY_INCLUDE" )
-CMAKE_BUILD_CMD="xcodebuild -configuration Release build install -target install"
+CMAKE_BUILD_CMD="xcodebuild -target install -configuration Release"
 SWIG=/usr/local/bin/swig
 
 # libSBML deps
